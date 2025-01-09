@@ -1,0 +1,17 @@
+{"time":"2025-01-07T11:04:05.7240873+01:00","level":"INFO","msg":"using version","core version":"0.19.1"}
+{"time":"2025-01-07T11:04:05.7240873+01:00","level":"INFO","msg":"created symlink","path":"C:\\Users\\jimal\\OneDrive - BUas\\Desktop\\Block_2B\\Y2B-2023-OT2_Twin\\wandb\\run-20250107_110405-tfug56v2\\logs\\debug-core.log"}
+{"time":"2025-01-07T11:04:05.8700844+01:00","level":"INFO","msg":"created new stream","id":"tfug56v2"}
+{"time":"2025-01-07T11:04:05.8700844+01:00","level":"INFO","msg":"stream: started","id":"tfug56v2"}
+{"time":"2025-01-07T11:04:05.8700844+01:00","level":"INFO","msg":"writer: Do: started","stream_id":"tfug56v2"}
+{"time":"2025-01-07T11:04:05.8700844+01:00","level":"INFO","msg":"handler: started","stream_id":"tfug56v2"}
+{"time":"2025-01-07T11:04:05.8700844+01:00","level":"INFO","msg":"sender: started","stream_id":"tfug56v2"}
+{"time":"2025-01-07T11:04:06.4240557+01:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-01-07T12:06:56.8408766+01:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-01-07T12:06:56.841382+01:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-01-07T12:06:57.8520361+01:00","level":"INFO","msg":"handler: operation stats","stats":{"operations":[{"desc":"uploading output.log","runtime_seconds":0.4742092,"progress":"113.8KB/113.8KB"}],"total_operations":1}}
+{"time":"2025-01-07T12:06:57.9597315+01:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-01-07T12:06:59.2307162+01:00","level":"INFO","msg":"stream: closing","id":"tfug56v2"}
+{"time":"2025-01-07T12:06:59.2307162+01:00","level":"INFO","msg":"handler: closed","stream_id":"tfug56v2"}
+{"time":"2025-01-07T12:06:59.2307162+01:00","level":"INFO","msg":"writer: Close: closed","stream_id":"tfug56v2"}
+{"time":"2025-01-07T12:06:59.2307162+01:00","level":"INFO","msg":"sender: closed","stream_id":"tfug56v2"}
+{"time":"2025-01-07T12:06:59.2312228+01:00","level":"INFO","msg":"stream: closed","id":"tfug56v2"}

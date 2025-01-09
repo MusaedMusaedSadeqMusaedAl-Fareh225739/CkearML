@@ -1,0 +1,19 @@
+{"time":"2025-01-08T16:42:52.7667942+01:00","level":"INFO","msg":"using version","core version":"0.19.1"}
+{"time":"2025-01-08T16:42:52.7667942+01:00","level":"INFO","msg":"created symlink","path":"C:\\Users\\jimal\\OneDrive - BUas\\Desktop\\Block_2B\\Y2B-2023-OT2_Twin\\wandb\\run-20250108_164252-rh84li5v\\logs\\debug-core.log"}
+{"time":"2025-01-08T16:42:52.9199991+01:00","level":"INFO","msg":"created new stream","id":"rh84li5v"}
+{"time":"2025-01-08T16:42:52.9199991+01:00","level":"INFO","msg":"stream: started","id":"rh84li5v"}
+{"time":"2025-01-08T16:42:52.9199991+01:00","level":"INFO","msg":"writer: Do: started","stream_id":"rh84li5v"}
+{"time":"2025-01-08T16:42:52.9205925+01:00","level":"INFO","msg":"sender: started","stream_id":"rh84li5v"}
+{"time":"2025-01-08T16:42:52.9205925+01:00","level":"INFO","msg":"handler: started","stream_id":"rh84li5v"}
+{"time":"2025-01-08T16:42:53.3882296+01:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-01-08T16:42:55.9878874+01:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-01-08T16:42:55.9878874+01:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-01-08T16:42:56.9892839+01:00","level":"INFO","msg":"handler: operation stats","stats":{}}
+{"time":"2025-01-08T16:43:05.1652829+01:00","level":"INFO","msg":"tensorboard: no root directory after 10 seconds, using working directory"}
+{"time":"2025-01-08T16:43:05.1690032+01:00","level":"ERROR","msg":"tensorboard: error creating symlink","target":"C:\\Users\\jimal\\OneDrive - BUas\\Desktop\\Block_2B\\Y2B-2023-OT2_Twin\\runs\\rh84li5v\\runs\\rh84li5v_1\\events.out.tfevents.1736350975.Alfareh.58900.0","symlink":"C:\\Users\\jimal\\OneDrive - BUas\\Desktop\\Block_2B\\Y2B-2023-OT2_Twin\\wandb\\run-20250108_164252-rh84li5v\\files\\runs\\rh84li5v\\runs\\rh84li5v_1\\events.out.tfevents.1736350975.Alfareh.58900.0","error":"symlink C:\\Users\\jimal\\OneDrive - BUas\\Desktop\\Block_2B\\Y2B-2023-OT2_Twin\\runs\\rh84li5v\\runs\\rh84li5v_1\\events.out.tfevents.1736350975.Alfareh.58900.0 C:\\Users\\jimal\\OneDrive - BUas\\Desktop\\Block_2B\\Y2B-2023-OT2_Twin\\wandb\\run-20250108_164252-rh84li5v\\files\\runs\\rh84li5v\\runs\\rh84li5v_1\\events.out.tfevents.1736350975.Alfareh.58900.0: A required privilege is not held by the client."}
+{"time":"2025-01-08T16:43:05.680861+01:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-01-08T16:43:06.9437524+01:00","level":"INFO","msg":"stream: closing","id":"rh84li5v"}
+{"time":"2025-01-08T16:43:06.9437524+01:00","level":"INFO","msg":"handler: closed","stream_id":"rh84li5v"}
+{"time":"2025-01-08T16:43:06.9437524+01:00","level":"INFO","msg":"writer: Close: closed","stream_id":"rh84li5v"}
+{"time":"2025-01-08T16:43:06.9437524+01:00","level":"INFO","msg":"sender: closed","stream_id":"rh84li5v"}
+{"time":"2025-01-08T16:43:06.9448548+01:00","level":"INFO","msg":"stream: closed","id":"rh84li5v"}

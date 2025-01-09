@@ -1,0 +1,39 @@
+2025-01-09 08:48:02,254 INFO    MainThread:69064 [wandb_setup.py:_flush():68] Current SDK version is 0.19.1
+2025-01-09 08:48:02,254 INFO    MainThread:69064 [wandb_setup.py:_flush():68] Configure stats pid to 69064
+2025-01-09 08:48:02,254 INFO    MainThread:69064 [wandb_setup.py:_flush():68] Loading settings from C:\Users\jimal\.config\wandb\settings
+2025-01-09 08:48:02,254 INFO    MainThread:69064 [wandb_setup.py:_flush():68] Loading settings from C:\Users\jimal\OneDrive - BUas\Desktop\Block_2B\Y2B-2023-OT2_Twin\wandb\settings
+2025-01-09 08:48:02,254 INFO    MainThread:69064 [wandb_setup.py:_flush():68] Loading settings from environment variables
+2025-01-09 08:48:02,255 INFO    MainThread:69064 [wandb_init.py:_log_setup():528] Logging user logs to C:\Users\jimal\OneDrive - BUas\Desktop\Block_2B\Y2B-2023-OT2_Twin\wandb\run-20250109_084802-zy11a9cz\logs\debug.log
+2025-01-09 08:48:02,256 INFO    MainThread:69064 [wandb_init.py:_log_setup():529] Logging internal logs to C:\Users\jimal\OneDrive - BUas\Desktop\Block_2B\Y2B-2023-OT2_Twin\wandb\run-20250109_084802-zy11a9cz\logs\debug-internal.log
+2025-01-09 08:48:02,256 INFO    MainThread:69064 [wandb_init.py:init():644] calling init triggers
+2025-01-09 08:48:02,256 INFO    MainThread:69064 [wandb_init.py:init():650] wandb.init called with sweep_config: {}
+config: {}
+2025-01-09 08:48:02,256 INFO    MainThread:69064 [wandb_init.py:init():680] starting backend
+2025-01-09 08:48:02,256 INFO    MainThread:69064 [wandb_init.py:init():684] sending inform_init request
+2025-01-09 08:48:02,300 INFO    MainThread:69064 [backend.py:_multiprocessing_setup():104] multiprocessing start_methods=spawn, using: spawn
+2025-01-09 08:48:02,302 INFO    MainThread:69064 [wandb_init.py:init():697] backend started and connected
+2025-01-09 08:48:02,304 INFO    MainThread:69064 [wandb_init.py:init():790] updated telemetry
+2025-01-09 08:48:02,685 INFO    MainThread:69064 [wandb_init.py:init():822] communicating run to backend with 300.0 second timeout
+2025-01-09 08:48:02,994 INFO    MainThread:69064 [wandb_init.py:init():874] starting run threads in backend
+2025-01-09 08:48:03,288 INFO    MainThread:69064 [wandb_run.py:_console_start():2374] atexit reg
+2025-01-09 08:48:03,288 INFO    MainThread:69064 [wandb_run.py:_redirect():2224] redirect: wrap_raw
+2025-01-09 08:48:03,288 INFO    MainThread:69064 [wandb_run.py:_redirect():2289] Wrapping output streams.
+2025-01-09 08:48:03,288 INFO    MainThread:69064 [wandb_run.py:_redirect():2314] Redirects installed.
+2025-01-09 08:48:03,295 INFO    MainThread:69064 [wandb_init.py:init():916] run started, returning control to user process
+2025-01-09 08:48:06,718 INFO    MainThread:69064 [wandb_run.py:_tensorboard_callback():1436] tensorboard callback: runs/zy11a9cz\runs/zy11a9cz_0, True
+2025-01-09 08:48:06,729 INFO    MainThread:69064 [wandb_run.py:_config_callback():1279] config_cb None None {'algo': 'PPO', 'policy_class': "<class 'stable_baselines3.common.policies.ActorCriticPolicy'>", 'device': 'cpu', 'verbose': 1, 'policy_kwargs': '{}', 'num_timesteps': 0, '_total_timesteps': 2000, '_num_timesteps_at_start': 0, 'seed': 'None', 'action_noise': 'None', 'start_time': 1736408886710124900, 'learning_rate': 0.0003, 'tensorboard_log': 'runs/zy11a9cz', '_last_obs': '[[ 0.5557935 -0.8313204  0.5783031]]', '_last_episode_starts': '[ True]', '_last_original_obs': 'None', '_episode_num': 0, 'use_sde': 'False', 'sde_sample_freq': -1, '_current_progress_remaining': 1.0, '_stats_window_size': 100, 'ep_info_buffer': 'deque([], maxlen=100)', 'ep_success_buffer': 'deque([], maxlen=100)', '_n_updates': 0, '_custom_logger': 'False', 'env': '<stable_baselines3.common.vec_env.dummy_vec_env.DummyVecEnv object at 0x000001EFB8F83C40>', '_vec_normalize_env': 'None', 'observation_space': 'Box([-1. -1. -8.], [1. 1. 8.], (3,), float32)', 'action_space': 'Box(-2.0, 2.0, (1,), float32)', 'n_envs': 1, 'n_steps': 2048, 'gamma': 0.99, 'gae_lambda': 0.95, 'ent_coef': 0.0, 'vf_coef': 0.5, 'max_grad_norm': 0.5, 'rollout_buffer_class': "<class 'stable_baselines3.common.buffers.RolloutBuffer'>", 'rollout_buffer_kwargs': '{}', 'batch_size': 64, 'n_epochs': 10, 'clip_range': '<function get_schedule_fn.<locals>.<lambda> at 0x000001EFBF6AD430>', 'clip_range_vf': 'None', 'normalize_advantage': 'True', 'target_kl': 'None', 'lr_schedule': '<function get_schedule_fn.<locals>.<lambda> at 0x000001EFB8F921F0>', 'rollout_buffer': '<stable_baselines3.common.buffers.RolloutBuffer object at 0x000001EFB8F8D2B0>', 'policy': 'ActorCriticPolicy(\n  (features_extractor): FlattenExtractor(\n    (flatten): Flatten(start_dim=1, end_dim=-1)\n  )\n  (pi_features_extractor): FlattenExtractor(\n    (flatten): Flatten(start_dim=1, end_dim=-1)\n  )\n  (vf_features_extractor): FlattenExtractor(\n    (flatten): Flatten(start_dim=1, end_dim=-1)\n  )\n  (mlp_extractor): MlpExtractor(\n    (policy_net): Sequential(\n      (0): Linear(in_features=3, out_features=64, bias=True)\n      (1): Tanh()\n      (2): Linear(in_features=64, out_features=64, bias=True)\n      (3): Tanh()\n    )\n    (value_net): Sequential(\n      (0): Linear(in_features=3, out_features=64, bias=True)\n      (1): Tanh()\n      (2): Linear(in_features=64, out_features=64, bias=True)\n      (3): Tanh()\n    )\n  )\n  (action_net): Linear(in_features=64, out_features=1, bias=True)\n  (value_net): Linear(in_features=64, out_features=1, bias=True)\n)', '_logger': '<stable_baselines3.common.logger.Logger object at 0x000001EFBF30A3A0>'}
+2025-01-09 08:48:11,219 INFO    MainThread:69064 [wandb_run.py:_tensorboard_callback():1436] tensorboard callback: runs/zy11a9cz\runs/zy11a9cz_0, True
+2025-01-09 08:48:11,225 INFO    MainThread:69064 [wandb_run.py:_config_callback():1279] config_cb None None {}
+2025-01-09 08:48:14,576 INFO    MainThread:69064 [wandb_run.py:_tensorboard_callback():1436] tensorboard callback: runs/zy11a9cz\runs/zy11a9cz_0, True
+2025-01-09 08:48:14,581 INFO    MainThread:69064 [wandb_run.py:_config_callback():1279] config_cb None None {}
+2025-01-09 08:48:18,073 INFO    MainThread:69064 [wandb_run.py:_tensorboard_callback():1436] tensorboard callback: runs/zy11a9cz\runs/zy11a9cz_0, True
+2025-01-09 08:48:18,078 INFO    MainThread:69064 [wandb_run.py:_config_callback():1279] config_cb None None {}
+2025-01-09 08:48:20,879 INFO    MainThread:69064 [wandb_run.py:_tensorboard_callback():1436] tensorboard callback: runs/zy11a9cz\runs/zy11a9cz_0, True
+2025-01-09 08:48:20,884 INFO    MainThread:69064 [wandb_run.py:_config_callback():1279] config_cb None None {}
+2025-01-09 08:48:23,579 INFO    MainThread:69064 [wandb_run.py:_finish():2100] finishing run 225739-breda-university-of-applied-sciences/sb3_pendulum_demo/zy11a9cz
+2025-01-09 08:48:23,579 INFO    MainThread:69064 [wandb_run.py:_atexit_cleanup():2339] got exitcode: 0
+2025-01-09 08:48:23,579 INFO    MainThread:69064 [wandb_run.py:_restore():2321] restore
+2025-01-09 08:48:23,579 INFO    MainThread:69064 [wandb_run.py:_restore():2327] restore done
+2025-01-09 08:48:26,020 INFO    MainThread:69064 [wandb_run.py:_footer_history_summary_info():3892] rendering history
+2025-01-09 08:48:26,021 INFO    MainThread:69064 [wandb_run.py:_footer_history_summary_info():3924] rendering summary
+2025-01-09 08:48:26,031 INFO    MainThread:69064 [wandb_run.py:_footer_sync_info():3853] logging synced files

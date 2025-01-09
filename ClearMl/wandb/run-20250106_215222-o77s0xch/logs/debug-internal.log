@@ -1,0 +1,19 @@
+{"time":"2025-01-06T21:52:22.821764+01:00","level":"INFO","msg":"using version","core version":"0.19.1"}
+{"time":"2025-01-06T21:52:22.821764+01:00","level":"INFO","msg":"created symlink","path":"C:\\Users\\jimal\\OneDrive - BUas\\Desktop\\Block_2B\\Y2B-2023-OT2_Twin\\wandb\\run-20250106_215222-o77s0xch\\logs\\debug-core.log"}
+{"time":"2025-01-06T21:52:22.9672144+01:00","level":"INFO","msg":"created new stream","id":"o77s0xch"}
+{"time":"2025-01-06T21:52:22.9672144+01:00","level":"INFO","msg":"stream: started","id":"o77s0xch"}
+{"time":"2025-01-06T21:52:22.9672144+01:00","level":"INFO","msg":"writer: Do: started","stream_id":"o77s0xch"}
+{"time":"2025-01-06T21:52:22.9672144+01:00","level":"INFO","msg":"handler: started","stream_id":"o77s0xch"}
+{"time":"2025-01-06T21:52:22.9672144+01:00","level":"INFO","msg":"sender: started","stream_id":"o77s0xch"}
+{"time":"2025-01-06T21:52:23.4573145+01:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-01-07T00:42:24.1822781+01:00","level":"INFO","msg":"api: retrying HTTP error","status":502,"url":"https://api.wandb.ai/files/jimalfareh-breda-university-of-applied-sciences/opentrons-rl/o77s0xch/file_stream","body":"\n<html><head>\n<meta http-equiv=\"content-type\" content=\"text/html;charset=utf-8\">\n<title>502 Server Error</title>\n</head>\n<body text=#000000 bgcolor=#ffffff>\n<h1>Error: Server Error</h1>\n<h2>The server encountered a temporary error and could not complete your request.<p>Please try again in 30 seconds.</h2>\n<h2></h2>\n</body></html>\n"}
+{"time":"2025-01-07T05:02:19.8866737+01:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/graphql\": read tcp 172.20.10.3:56018->35.186.228.49:443: wsarecv: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond."}
+{"time":"2025-01-07T05:02:20.4252403+01:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-01-07T05:02:20.4283876+01:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-01-07T05:02:21.4204416+01:00","level":"INFO","msg":"handler: operation stats","stats":{}}
+{"time":"2025-01-07T05:02:24.242948+01:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-01-07T05:02:25.5916329+01:00","level":"INFO","msg":"stream: closing","id":"o77s0xch"}
+{"time":"2025-01-07T05:02:25.5916329+01:00","level":"INFO","msg":"handler: closed","stream_id":"o77s0xch"}
+{"time":"2025-01-07T05:02:25.5916329+01:00","level":"INFO","msg":"writer: Close: closed","stream_id":"o77s0xch"}
+{"time":"2025-01-07T05:02:25.592401+01:00","level":"INFO","msg":"sender: closed","stream_id":"o77s0xch"}
+{"time":"2025-01-07T05:02:25.592401+01:00","level":"INFO","msg":"stream: closed","id":"o77s0xch"}

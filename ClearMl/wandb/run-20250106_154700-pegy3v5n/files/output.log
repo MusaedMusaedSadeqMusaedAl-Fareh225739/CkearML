@@ -1,0 +1,4 @@
+Traceback (most recent call last):
+  File "C:\Users\jimal\OneDrive - BUas\Desktop\Block_2B\Y2B-2023-OT2_Twin\train_rl.py", line 20, in <module>
+    from ot2_gym_wrapper import OT2GymEnv
+ImportError: cannot import name 'OT2GymEnv' from 'ot2_gym_wrapper' (C:\Users\jimal\OneDrive - BUas\Desktop\Block_2B\Y2B-2023-OT2_Twin\ot2_gym_wrapper.py)

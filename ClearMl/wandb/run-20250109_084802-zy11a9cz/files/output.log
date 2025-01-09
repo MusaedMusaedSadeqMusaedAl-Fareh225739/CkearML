@@ -1,0 +1,79 @@
+Using cpu device
+C:\Users\jimal\anaconda3\envs\Y2B\lib\site-packages\stable_baselines3\common\vec_env\patch_gym.py:49: UserWarning: You provided an OpenAI Gym environment. We strongly recommend transitioning to Gymnasium environments. Stable-Baselines3 is automatically wrapping your environments in a compatibility layer, which could potentially cause issues.
+  warnings.warn(
+Wrapping the env with a `Monitor` wrapper
+Wrapping the env in a DummyVecEnv.
+Starting iteration 1/5
+Logging to runs/zy11a9cz\runs/zy11a9cz_0
+[2KC:\Users\jimal\anaconda3\envs\Y2B\lib\site-packages\gym\utils\passive_env_checker.py:233: DeprecationWarning: `np.bool8` is0m [ [33m0:00:00[0m < [36m-:--:--[0m , [31m? it/s[0m ]
+a deprecated alias for `np.bool_`.  (Deprecated NumPy 1.24)
+  if not isinstance(terminated, (bool, np.bool8)):
+[2K----------------------------------━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m2,013/2,000 [0m [ [33m0:00:01[0m < [36m0:00:00[0m , [31m1,208 it/s[0m ]01[0m , [31m1,215 it/s[0m ]s[0m ]
+| rollout/           |           |
+|    ep_len_mean     | 200       |
+|    ep_rew_mean     | -1.29e+03 |
+| time/              |           |
+|    fps             | 1125      |
+|    iterations      | 1         |
+|    time_elapsed    | 1         |
+|    total_timesteps | 2048      |
+----------------------------------
+[2K[35m 100%[0m [38;2;114;156;31m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m2,048/2,000 [0m [ [33m0:00:01[0m < [36m0:00:00[0m , [31m470 it/s[0m ]
+[?25hModel saved after iteration 1
+Starting iteration 2/5
+Logging to runs/zy11a9cz\runs/zy11a9cz_0
+[2K----------------------------------━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━━━[0m [32m1,691/2,000 [0m [ [33m0:00:00[0m < [36m0:00:01[0m , [31m1,861 it/s[0m ]s[0m ]
+| rollout/           |           |
+|    ep_len_mean     | 200       |
+|    ep_rew_mean     | -1.13e+03 |
+| time/              |           |
+|    fps             | 1897      |
+|    iterations      | 1         |
+|    time_elapsed    | 1         |
+|    total_timesteps | 4096      |
+----------------------------------
+[2K[35m 100%[0m [38;2;114;156;31m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m2,048/2,000 [0m [ [33m0:00:03[0m < [36m0:00:00[0m , [31m569 it/s[0m ]01[0m , [31m1,883 it/s[0m ]
+[?25hModel saved after iteration 2
+Starting iteration 3/5
+Logging to runs/zy11a9cz\runs/zy11a9cz_0
+[2K----------------------------------━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━[0m [32m1,772/2,000 [0m [ [33m0:00:01[0m < [36m0:00:01[0m , [31m1,195 it/s[0m ]s[0m ]
+| rollout/           |           |
+|    ep_len_mean     | 200       |
+|    ep_rew_mean     | -1.12e+03 |
+| time/              |           |
+|    fps             | 1289      |
+|    iterations      | 1         |
+|    time_elapsed    | 1         |
+|    total_timesteps | 6144      |
+----------------------------------
+[2K[35m 100%[0m [38;2;114;156;31m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m2,048/2,000 [0m [ [33m0:00:03[0m < [36m0:00:00[0m , [31m552 it/s[0m ],250 it/s[0m ] it/s[0m ]
+[?25hModel saved after iteration 3
+Starting iteration 4/5
+Logging to runs/zy11a9cz\runs/zy11a9cz_0
+[2K----------------------------------━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━[0m [32m1,769/2,000 [0m [ [33m0:00:01[0m < [36m0:00:01[0m , [31m1,859 it/s[0m ]s[0m ]
+| rollout/           |           |
+|    ep_len_mean     | 200       |
+|    ep_rew_mean     | -1.15e+03 |
+| time/              |           |
+|    fps             | 1870      |
+|    iterations      | 1         |
+|    time_elapsed    | 1         |
+|    total_timesteps | 8192      |
+----------------------------------
+[2K[35m 100%[0m [38;2;114;156;31m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m2,048/2,000 [0m [ [33m0:00:02[0m < [36m0:00:00[0m , [31m677 it/s[0m ],862 it/s[0m ] it/s[0m ]
+[?25hModel saved after iteration 4
+Starting iteration 5/5
+Logging to runs/zy11a9cz\runs/zy11a9cz_0
+[2K----------------------------------━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;2;249;38;114m╸[0m[38;5;237m━━━━━━━━━━[0m [32m1,703/2,000 [0m [ [33m0:00:01[0m < [36m0:00:01[0m , [31m1,923 it/s[0m ]
+| rollout/           |           |
+|    ep_len_mean     | 200       |
+|    ep_rew_mean     | -1.16e+03 |
+| time/              |           |
+|    fps             | 1863      |
+|    iterations      | 1         |
+|    time_elapsed    | 1         |
+|    total_timesteps | 10240     |
+----------------------------------
+[2K[35m 100%[0m [38;2;114;156;31m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m2,048/2,000 [0m [ [33m0:00:02[0m < [36m0:00:00[0m , [31m740 it/s[0m ]6m0:00:01[0m , [31m1,978 it/s[0m ]
+[?25hModel saved after iteration 5
+Incremental training completed successfully!

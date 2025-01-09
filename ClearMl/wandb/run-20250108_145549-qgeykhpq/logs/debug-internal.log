@@ -1,0 +1,17 @@
+{"time":"2025-01-08T14:55:49.789658+01:00","level":"INFO","msg":"using version","core version":"0.19.1"}
+{"time":"2025-01-08T14:55:49.789658+01:00","level":"INFO","msg":"created symlink","path":"C:\\Users\\jimal\\OneDrive - BUas\\Desktop\\Block_2B\\Y2B-2023-OT2_Twin\\wandb\\run-20250108_145549-qgeykhpq\\logs\\debug-core.log"}
+{"time":"2025-01-08T14:55:49.9819201+01:00","level":"INFO","msg":"created new stream","id":"qgeykhpq"}
+{"time":"2025-01-08T14:55:49.9824724+01:00","level":"INFO","msg":"stream: started","id":"qgeykhpq"}
+{"time":"2025-01-08T14:55:49.9830083+01:00","level":"INFO","msg":"writer: Do: started","stream_id":"qgeykhpq"}
+{"time":"2025-01-08T14:55:49.9824724+01:00","level":"INFO","msg":"handler: started","stream_id":"qgeykhpq"}
+{"time":"2025-01-08T14:55:49.9830083+01:00","level":"INFO","msg":"sender: started","stream_id":"qgeykhpq"}
+{"time":"2025-01-08T14:55:50.3712156+01:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-01-08T14:55:50.5192404+01:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-01-08T14:55:50.5213879+01:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-01-08T14:55:51.4021937+01:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-01-08T14:55:51.5336776+01:00","level":"INFO","msg":"handler: operation stats","stats":{"operations":[{"desc":"uploading history steps 0-7, summary","runtime_seconds":0.1314839}],"total_operations":1}}
+{"time":"2025-01-08T14:55:52.6476962+01:00","level":"INFO","msg":"stream: closing","id":"qgeykhpq"}
+{"time":"2025-01-08T14:55:52.6476962+01:00","level":"INFO","msg":"handler: closed","stream_id":"qgeykhpq"}
+{"time":"2025-01-08T14:55:52.6476962+01:00","level":"INFO","msg":"writer: Close: closed","stream_id":"qgeykhpq"}
+{"time":"2025-01-08T14:55:52.6476962+01:00","level":"INFO","msg":"sender: closed","stream_id":"qgeykhpq"}
+{"time":"2025-01-08T14:55:52.6488716+01:00","level":"INFO","msg":"stream: closed","id":"qgeykhpq"}

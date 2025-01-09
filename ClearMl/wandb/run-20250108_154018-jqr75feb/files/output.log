@@ -1,0 +1,4 @@
+Traceback (most recent call last):
+  File "C:\Users\jimal\OneDrive - BUas\Desktop\Block_2B\Y2B-2023-OT2_Twin\train_rl_wandb.py", line 8, in <module>
+    model = PPO('MlpPolicy', env, verbose=1, tensorboard_log=f"runs/{run.id}")
+NameError: name 'PPO' is not defined

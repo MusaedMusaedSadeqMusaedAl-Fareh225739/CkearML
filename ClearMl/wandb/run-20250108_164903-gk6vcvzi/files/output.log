@@ -1,0 +1,109 @@
+Using cpu device
+C:\Users\jimal\anaconda3\envs\Y2B\lib\site-packages\stable_baselines3\common\vec_env\patch_gym.py:49: UserWarning: You provided an OpenAI Gym environment. We strongly recommend transitioning to Gymnasium environments. Stable-Baselines3 is automatically wrapping your environments in a compatibility layer, which could potentially cause issues.
+  warnings.warn(
+Wrapping the env with a `Monitor` wrapper
+Wrapping the env in a DummyVecEnv.
+Logging to runs/gk6vcvzi\runs/gk6vcvzi_1
+[2KC:\Users\jimal\anaconda3\envs\Y2B\lib\site-packages\gym\utils\passive_env_checker.py:233: m0/10,000 [0m [ [33m0:00:00[0m < [36m-:--:--[0m , [31m? it/s[0m ]
+DeprecationWarning: `np.bool8` is a deprecated alias for `np.bool_`.  (Deprecated NumPy 1.24)
+  if not isinstance(terminated, (bool, np.bool8)):
+[2K----------------------------------━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m1,954/10,000 [0m [ [33m0:00:01[0m < [36m0:00:06[0m , [31m1,437 it/s[0m ]s[0m ]
+| rollout/           |           |
+|    ep_len_mean     | 200       |
+|    ep_rew_mean     | -1.16e+03 |
+| time/              |           |
+|    fps             | 1350      |
+|    iterations      | 1         |
+|    time_elapsed    | 1         |
+|    total_timesteps | 2048      |
+----------------------------------
+[2K------------------------------------------━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m3,961/10,000 [0m [ [33m0:00:04[0m < [36m0:00:08[0m , [31m817 it/s[0m ]s[0m ]
+| rollout/                |              |
+|    ep_len_mean          | 200          |
+|    ep_rew_mean          | -1.16e+03    |
+| time/                   |              |
+|    fps                  | 817          |
+|    iterations           | 2            |
+|    time_elapsed         | 5            |
+|    total_timesteps      | 4096         |
+| train/                  |              |
+|    approx_kl            | 0.0016037787 |
+|    clip_fraction        | 0.00605      |
+|    clip_range           | 0.2          |
+|    entropy_loss         | -1.42        |
+|    explained_variance   | 0.000568     |
+|    learning_rate        | 0.0003       |
+|    loss                 | 4.04e+03     |
+|    n_updates            | 10           |
+|    policy_gradient_loss | -0.00129     |
+|    std                  | 1            |
+|    value_loss           | 8.76e+03     |
+------------------------------------------
+[2K------------------------------------------━━━━━━━━━━━━━━━━━━━[0m[38;2;249;38;114m╸[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━[0m [32m5,853/10,000 [0m [ [33m0:00:08[0m < [36m0:00:06[0m , [31m698 it/s[0m ]
+| rollout/                |              |
+|    ep_len_mean          | 200          |
+|    ep_rew_mean          | -1.18e+03    |
+| time/                   |              |
+|    fps                  | 717          |
+|    iterations           | 3            |
+|    time_elapsed         | 8            |
+|    total_timesteps      | 6144         |
+| train/                  |              |
+|    approx_kl            | 0.0003589682 |
+|    clip_fraction        | 0            |
+|    clip_range           | 0.2          |
+|    entropy_loss         | -1.42        |
+|    explained_variance   | 0.151        |
+|    learning_rate        | 0.0003       |
+|    loss                 | 3.98e+03     |
+|    n_updates            | 20           |
+|    policy_gradient_loss | -0.000513    |
+|    std                  | 0.994        |
+|    value_loss           | 7.9e+03      |
+------------------------------------------
+[2K------------------------------------------━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━━[0m [32m7,965/10,000 [0m [ [33m0:00:11[0m < [36m0:00:03[0m , [31m699 it/s[0m ]s[0m ]
+| rollout/                |              |
+|    ep_len_mean          | 200          |
+|    ep_rew_mean          | -1.17e+03    |
+| time/                   |              |
+|    fps                  | 708          |
+|    iterations           | 4            |
+|    time_elapsed         | 11           |
+|    total_timesteps      | 8192         |
+| train/                  |              |
+|    approx_kl            | 0.0018362189 |
+|    clip_fraction        | 0.00522      |
+|    clip_range           | 0.2          |
+|    entropy_loss         | -1.41        |
+|    explained_variance   | 0.0503       |
+|    learning_rate        | 0.0003       |
+|    loss                 | 4.21e+03     |
+|    n_updates            | 30           |
+|    policy_gradient_loss | -0.0012      |
+|    std                  | 0.991        |
+|    value_loss           | 8.3e+03      |
+------------------------------------------
+[2K------------------------------------------━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m10,055/10,000 [0m [ [33m0:00:14[0m < [36m0:00:00[0m , [31m671 it/s[0m ]0:01[0m , [31m649 it/s[0m ]s[0m ]
+| rollout/                |              |
+|    ep_len_mean          | 200          |
+|    ep_rew_mean          | -1.21e+03    |
+| time/                   |              |
+|    fps                  | 678          |
+|    iterations           | 5            |
+|    time_elapsed         | 15           |
+|    total_timesteps      | 10240        |
+| train/                  |              |
+|    approx_kl            | 0.0027213683 |
+|    clip_fraction        | 0.0109       |
+|    clip_range           | 0.2          |
+|    entropy_loss         | -1.41        |
+|    explained_variance   | 0.0165       |
+|    learning_rate        | 0.0003       |
+|    loss                 | 3.93e+03     |
+|    n_updates            | 40           |
+|    policy_gradient_loss | -0.00195     |
+|    std                  | 0.982        |
+|    value_loss           | 8.13e+03     |
+------------------------------------------
+[2K[35m 100%[0m [38;2;114;156;31m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m10,240/10,000 [0m [ [33m0:00:14[0m < [36m0:00:00[0m , [31m602 it/s[0m ]
+[?25hTraining completed successfully!

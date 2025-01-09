@@ -1,0 +1,57 @@
+{"time":"2025-01-06T16:38:21.4315395+01:00","level":"INFO","msg":"using version","core version":"0.19.1"}
+{"time":"2025-01-06T16:38:21.4315395+01:00","level":"INFO","msg":"created symlink","path":"C:\\Users\\jimal\\OneDrive - BUas\\Desktop\\Block_2B\\Y2B-2023-OT2_Twin\\wandb\\run-20250106_163821-6pbj8c1x\\logs\\debug-core.log"}
+{"time":"2025-01-06T16:38:21.5787303+01:00","level":"INFO","msg":"created new stream","id":"6pbj8c1x"}
+{"time":"2025-01-06T16:38:21.5787303+01:00","level":"INFO","msg":"stream: started","id":"6pbj8c1x"}
+{"time":"2025-01-06T16:38:21.5797421+01:00","level":"INFO","msg":"writer: Do: started","stream_id":"6pbj8c1x"}
+{"time":"2025-01-06T16:38:21.5797421+01:00","level":"INFO","msg":"handler: started","stream_id":"6pbj8c1x"}
+{"time":"2025-01-06T16:38:21.5797421+01:00","level":"INFO","msg":"sender: started","stream_id":"6pbj8c1x"}
+{"time":"2025-01-06T16:38:22.0039686+01:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-01-06T16:53:43.9646768+01:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/files/jimalfareh-breda-university-of-applied-sciences/opentrons-rl/6pbj8c1x/file_stream\": dial tcp: lookup api.wandb.ai: no such host"}
+{"time":"2025-01-06T16:53:46.2421001+01:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/files/jimalfareh-breda-university-of-applied-sciences/opentrons-rl/6pbj8c1x/file_stream\": dial tcp: lookup api.wandb.ai: no such host"}
+{"time":"2025-01-06T16:53:50.5039343+01:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/files/jimalfareh-breda-university-of-applied-sciences/opentrons-rl/6pbj8c1x/file_stream\": dial tcp: lookup api.wandb.ai: no such host"}
+{"time":"2025-01-06T17:22:56.474846+01:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/files/jimalfareh-breda-university-of-applied-sciences/opentrons-rl/6pbj8c1x/file_stream\": dial tcp: lookup api.wandb.ai: no such host"}
+{"time":"2025-01-06T17:22:58.3830955+01:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/graphql\": dial tcp: lookup api.wandb.ai: no such host"}
+{"time":"2025-01-06T17:23:00.7161675+01:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/graphql\": dial tcp: lookup api.wandb.ai: no such host"}
+{"time":"2025-01-06T17:23:04.7955907+01:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/graphql\": dial tcp: lookup api.wandb.ai: no such host"}
+{"time":"2025-01-06T17:23:13.5147526+01:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/files/jimalfareh-breda-university-of-applied-sciences/opentrons-rl/6pbj8c1x/file_stream\": dial tcp: lookup api.wandb.ai: no such host"}
+{"time":"2025-01-06T17:23:14.4081879+01:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/graphql\": dial tcp: lookup api.wandb.ai: no such host"}
+{"time":"2025-01-06T17:23:33.107782+01:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/graphql\": dial tcp: lookup api.wandb.ai: no such host"}
+{"time":"2025-01-06T17:23:47.3519775+01:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/files/jimalfareh-breda-university-of-applied-sciences/opentrons-rl/6pbj8c1x/file_stream\": dial tcp: lookup api.wandb.ai: no such host"}
+{"time":"2025-01-06T17:24:10.2549746+01:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/graphql\": dial tcp: lookup api.wandb.ai: no such host"}
+{"time":"2025-01-06T17:24:47.3697067+01:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/files/jimalfareh-breda-university-of-applied-sciences/opentrons-rl/6pbj8c1x/file_stream\": dial tcp: lookup api.wandb.ai: no such host"}
+{"time":"2025-01-06T17:25:10.2716753+01:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/graphql\": dial tcp: lookup api.wandb.ai: no such host"}
+{"time":"2025-01-06T17:25:47.3937476+01:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/files/jimalfareh-breda-university-of-applied-sciences/opentrons-rl/6pbj8c1x/file_stream\": dial tcp: lookup api.wandb.ai: no such host"}
+{"time":"2025-01-06T17:26:10.2797997+01:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/graphql\": dial tcp: lookup api.wandb.ai: no such host"}
+{"time":"2025-01-06T17:26:47.4010497+01:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/files/jimalfareh-breda-university-of-applied-sciences/opentrons-rl/6pbj8c1x/file_stream\": dial tcp: lookup api.wandb.ai: no such host"}
+{"time":"2025-01-06T17:27:10.3035509+01:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/graphql\": dial tcp: lookup api.wandb.ai: no such host"}
+{"time":"2025-01-06T17:27:47.4201632+01:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/files/jimalfareh-breda-university-of-applied-sciences/opentrons-rl/6pbj8c1x/file_stream\": dial tcp: lookup api.wandb.ai: no such host"}
+{"time":"2025-01-06T17:28:10.3283441+01:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/graphql\": dial tcp: lookup api.wandb.ai: no such host"}
+{"time":"2025-01-06T17:28:47.4304591+01:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/files/jimalfareh-breda-university-of-applied-sciences/opentrons-rl/6pbj8c1x/file_stream\": dial tcp: lookup api.wandb.ai: no such host"}
+{"time":"2025-01-06T17:29:10.3489323+01:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/graphql\": dial tcp: lookup api.wandb.ai: no such host"}
+{"time":"2025-01-06T17:47:54.3979627+01:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/graphql\": read tcp 172.20.10.3:57510->35.186.228.49:443: wsarecv: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond."}
+{"time":"2025-01-06T17:51:59.2388466+01:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/files/jimalfareh-breda-university-of-applied-sciences/opentrons-rl/6pbj8c1x/file_stream\": unexpected EOF"}
+{"time":"2025-01-06T17:52:13.0155656+01:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/files/jimalfareh-breda-university-of-applied-sciences/opentrons-rl/6pbj8c1x/file_stream\": EOF"}
+{"time":"2025-01-06T18:09:49.7315739+01:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/files/jimalfareh-breda-university-of-applied-sciences/opentrons-rl/6pbj8c1x/file_stream\": dial tcp: lookup api.wandb.ai: no such host"}
+{"time":"2025-01-06T18:09:52.1970299+01:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/files/jimalfareh-breda-university-of-applied-sciences/opentrons-rl/6pbj8c1x/file_stream\": dial tcp: lookup api.wandb.ai: no such host"}
+{"time":"2025-01-06T18:43:53.1441749+01:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/files/jimalfareh-breda-university-of-applied-sciences/opentrons-rl/6pbj8c1x/file_stream\": dial tcp: lookup api.wandb.ai: no such host"}
+{"time":"2025-01-06T18:43:54.4740128+01:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/graphql\": dial tcp: lookup api.wandb.ai: no such host"}
+{"time":"2025-01-06T18:43:56.4825883+01:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/graphql\": dial tcp: lookup api.wandb.ai: no such host"}
+{"time":"2025-01-06T18:44:00.5336092+01:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/graphql\": dial tcp: lookup api.wandb.ai: no such host"}
+{"time":"2025-01-06T18:44:01.2598834+01:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/files/jimalfareh-breda-university-of-applied-sciences/opentrons-rl/6pbj8c1x/file_stream\": dial tcp: lookup api.wandb.ai: no such host"}
+{"time":"2025-01-06T18:44:09.6825086+01:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/graphql\": dial tcp: lookup api.wandb.ai: no such host"}
+{"time":"2025-01-06T18:44:17.3376912+01:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/files/jimalfareh-breda-university-of-applied-sciences/opentrons-rl/6pbj8c1x/file_stream\": dial tcp: lookup api.wandb.ai: no such host"}
+{"time":"2025-01-06T18:44:25.8135266+01:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/graphql\": dial tcp: lookup api.wandb.ai: no such host"}
+{"time":"2025-01-06T18:44:52.660783+01:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/files/jimalfareh-breda-university-of-applied-sciences/opentrons-rl/6pbj8c1x/file_stream\": dial tcp: lookup api.wandb.ai: no such host"}
+{"time":"2025-01-06T18:45:01.9807413+01:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/graphql\": dial tcp: lookup api.wandb.ai: no such host"}
+{"time":"2025-01-06T18:45:52.6661985+01:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/files/jimalfareh-breda-university-of-applied-sciences/opentrons-rl/6pbj8c1x/file_stream\": dial tcp: lookup api.wandb.ai: no such host"}
+{"time":"2025-01-06T18:46:01.9850531+01:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/graphql\": dial tcp: lookup api.wandb.ai: no such host"}
+{"time":"2025-01-06T21:10:48.4022901+01:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/graphql\": context deadline exceeded"}
+{"time":"2025-01-06T21:45:55.6818602+01:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-01-06T21:45:55.6897938+01:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-01-06T21:45:56.7009703+01:00","level":"INFO","msg":"handler: operation stats","stats":{"operations":[{"desc":"uploading output.log","runtime_seconds":0.4633338,"progress":"1.3MB/1.3MB"}],"total_operations":1}}
+{"time":"2025-01-06T21:45:57.2068478+01:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-01-06T21:45:58.6224874+01:00","level":"INFO","msg":"stream: closing","id":"6pbj8c1x"}
+{"time":"2025-01-06T21:45:58.6224874+01:00","level":"INFO","msg":"sender: closed","stream_id":"6pbj8c1x"}
+{"time":"2025-01-06T21:45:58.6224874+01:00","level":"INFO","msg":"handler: closed","stream_id":"6pbj8c1x"}
+{"time":"2025-01-06T21:45:58.6224874+01:00","level":"INFO","msg":"writer: Close: closed","stream_id":"6pbj8c1x"}
+{"time":"2025-01-06T21:45:58.623022+01:00","level":"INFO","msg":"stream: closed","id":"6pbj8c1x"}

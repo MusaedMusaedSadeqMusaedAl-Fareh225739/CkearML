@@ -1,0 +1,8 @@
+{"time":"2025-01-08T13:25:09.7194732+01:00","level":"INFO","msg":"using version","core version":"0.19.1"}
+{"time":"2025-01-08T13:25:09.7200025+01:00","level":"INFO","msg":"created symlink","path":"C:\\Users\\jimal\\OneDrive - BUas\\Desktop\\Block_2B\\Y2B-2023-OT2_Twin\\wandb\\run-20250108_132509-kbstqvco\\logs\\debug-core.log"}
+{"time":"2025-01-08T13:25:10.0157856+01:00","level":"INFO","msg":"created new stream","id":"kbstqvco"}
+{"time":"2025-01-08T13:25:10.0163766+01:00","level":"INFO","msg":"stream: started","id":"kbstqvco"}
+{"time":"2025-01-08T13:25:10.0169157+01:00","level":"INFO","msg":"writer: Do: started","stream_id":"kbstqvco"}
+{"time":"2025-01-08T13:25:10.0169157+01:00","level":"INFO","msg":"sender: started","stream_id":"kbstqvco"}
+{"time":"2025-01-08T13:25:10.0169157+01:00","level":"INFO","msg":"handler: started","stream_id":"kbstqvco"}
+{"time":"2025-01-08T13:25:10.4252826+01:00","level":"INFO","msg":"Starting system monitor"}

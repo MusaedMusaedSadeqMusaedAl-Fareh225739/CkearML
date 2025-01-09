@@ -1,0 +1,18 @@
+{"time":"2025-01-08T15:59:28.0044348+01:00","level":"INFO","msg":"using version","core version":"0.19.1"}
+{"time":"2025-01-08T15:59:28.0044348+01:00","level":"INFO","msg":"created symlink","path":"C:\\Users\\jimal\\OneDrive - BUas\\Desktop\\Block_2B\\Y2B-2023-OT2_Twin\\wandb\\run-20250108_155927-4h780ptv\\logs\\debug-core.log"}
+{"time":"2025-01-08T15:59:28.15933+01:00","level":"INFO","msg":"created new stream","id":"4h780ptv"}
+{"time":"2025-01-08T15:59:28.15933+01:00","level":"INFO","msg":"stream: started","id":"4h780ptv"}
+{"time":"2025-01-08T15:59:28.15933+01:00","level":"INFO","msg":"handler: started","stream_id":"4h780ptv"}
+{"time":"2025-01-08T15:59:28.15933+01:00","level":"INFO","msg":"sender: started","stream_id":"4h780ptv"}
+{"time":"2025-01-08T15:59:28.1600642+01:00","level":"INFO","msg":"writer: Do: started","stream_id":"4h780ptv"}
+{"time":"2025-01-08T15:59:28.5367578+01:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-01-08T15:59:30.8710865+01:00","level":"INFO","msg":"stream: closing","id":"4h780ptv"}
+{"time":"2025-01-08T15:59:30.8710865+01:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-01-08T15:59:30.8723793+01:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-01-08T15:59:40.3103893+01:00","level":"INFO","msg":"tensorboard: no root directory after 10 seconds, using working directory"}
+{"time":"2025-01-08T15:59:40.3146039+01:00","level":"ERROR","msg":"tensorboard: error creating symlink","target":"C:\\Users\\jimal\\OneDrive - BUas\\Desktop\\Block_2B\\Y2B-2023-OT2_Twin\\runs\\4h780ptv\\runs\\4h780ptv_1\\events.out.tfevents.1736348370.Alfareh.62356.0","symlink":"C:\\Users\\jimal\\OneDrive - BUas\\Desktop\\Block_2B\\Y2B-2023-OT2_Twin\\wandb\\run-20250108_155927-4h780ptv\\files\\runs\\4h780ptv\\runs\\4h780ptv_1\\events.out.tfevents.1736348370.Alfareh.62356.0","error":"symlink C:\\Users\\jimal\\OneDrive - BUas\\Desktop\\Block_2B\\Y2B-2023-OT2_Twin\\runs\\4h780ptv\\runs\\4h780ptv_1\\events.out.tfevents.1736348370.Alfareh.62356.0 C:\\Users\\jimal\\OneDrive - BUas\\Desktop\\Block_2B\\Y2B-2023-OT2_Twin\\wandb\\run-20250108_155927-4h780ptv\\files\\runs\\4h780ptv\\runs\\4h780ptv_1\\events.out.tfevents.1736348370.Alfareh.62356.0: A required privilege is not held by the client."}
+{"time":"2025-01-08T15:59:40.8914277+01:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-01-08T15:59:41.0969076+01:00","level":"INFO","msg":"handler: closed","stream_id":"4h780ptv"}
+{"time":"2025-01-08T15:59:41.0969076+01:00","level":"INFO","msg":"writer: Close: closed","stream_id":"4h780ptv"}
+{"time":"2025-01-08T15:59:41.0969076+01:00","level":"INFO","msg":"sender: closed","stream_id":"4h780ptv"}
+{"time":"2025-01-08T15:59:41.0974194+01:00","level":"INFO","msg":"stream: closed","id":"4h780ptv"}

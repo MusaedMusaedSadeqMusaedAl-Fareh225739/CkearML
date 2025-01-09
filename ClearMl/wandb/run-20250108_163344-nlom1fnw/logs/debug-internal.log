@@ -1,0 +1,18 @@
+{"time":"2025-01-08T16:33:44.9018117+01:00","level":"INFO","msg":"using version","core version":"0.19.1"}
+{"time":"2025-01-08T16:33:44.9018117+01:00","level":"INFO","msg":"created symlink","path":"C:\\Users\\jimal\\OneDrive - BUas\\Desktop\\Block_2B\\Y2B-2023-OT2_Twin\\wandb\\run-20250108_163344-nlom1fnw\\logs\\debug-core.log"}
+{"time":"2025-01-08T16:33:45.0708479+01:00","level":"INFO","msg":"created new stream","id":"nlom1fnw"}
+{"time":"2025-01-08T16:33:45.0708479+01:00","level":"INFO","msg":"stream: started","id":"nlom1fnw"}
+{"time":"2025-01-08T16:33:45.0708479+01:00","level":"INFO","msg":"handler: started","stream_id":"nlom1fnw"}
+{"time":"2025-01-08T16:33:45.0708479+01:00","level":"INFO","msg":"sender: started","stream_id":"nlom1fnw"}
+{"time":"2025-01-08T16:33:45.0708479+01:00","level":"INFO","msg":"writer: Do: started","stream_id":"nlom1fnw"}
+{"time":"2025-01-08T16:33:45.4709727+01:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-01-08T16:33:48.8305509+01:00","level":"INFO","msg":"stream: closing","id":"nlom1fnw"}
+{"time":"2025-01-08T16:33:48.8305509+01:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-01-08T16:33:48.8312217+01:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-01-08T16:33:58.191564+01:00","level":"INFO","msg":"tensorboard: no root directory after 10 seconds, using working directory"}
+{"time":"2025-01-08T16:33:58.1954722+01:00","level":"ERROR","msg":"tensorboard: error creating symlink","target":"C:\\Users\\jimal\\OneDrive - BUas\\Desktop\\Block_2B\\Y2B-2023-OT2_Twin\\runs\\nlom1fnw\\runs\\nlom1fnw_1\\events.out.tfevents.1736350428.Alfareh.22476.0","symlink":"C:\\Users\\jimal\\OneDrive - BUas\\Desktop\\Block_2B\\Y2B-2023-OT2_Twin\\wandb\\run-20250108_163344-nlom1fnw\\files\\runs\\nlom1fnw\\runs\\nlom1fnw_1\\events.out.tfevents.1736350428.Alfareh.22476.0","error":"symlink C:\\Users\\jimal\\OneDrive - BUas\\Desktop\\Block_2B\\Y2B-2023-OT2_Twin\\runs\\nlom1fnw\\runs\\nlom1fnw_1\\events.out.tfevents.1736350428.Alfareh.22476.0 C:\\Users\\jimal\\OneDrive - BUas\\Desktop\\Block_2B\\Y2B-2023-OT2_Twin\\wandb\\run-20250108_163344-nlom1fnw\\files\\runs\\nlom1fnw\\runs\\nlom1fnw_1\\events.out.tfevents.1736350428.Alfareh.22476.0: A required privilege is not held by the client."}
+{"time":"2025-01-08T16:33:58.847173+01:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-01-08T16:33:59.0421941+01:00","level":"INFO","msg":"handler: closed","stream_id":"nlom1fnw"}
+{"time":"2025-01-08T16:33:59.0421941+01:00","level":"INFO","msg":"writer: Close: closed","stream_id":"nlom1fnw"}
+{"time":"2025-01-08T16:33:59.0421941+01:00","level":"INFO","msg":"sender: closed","stream_id":"nlom1fnw"}
+{"time":"2025-01-08T16:33:59.0427028+01:00","level":"INFO","msg":"stream: closed","id":"nlom1fnw"}

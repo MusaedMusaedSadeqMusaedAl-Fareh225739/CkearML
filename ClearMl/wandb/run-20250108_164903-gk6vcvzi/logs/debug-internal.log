@@ -1,0 +1,19 @@
+{"time":"2025-01-08T16:49:03.7183651+01:00","level":"INFO","msg":"using version","core version":"0.19.1"}
+{"time":"2025-01-08T16:49:03.7183651+01:00","level":"INFO","msg":"created symlink","path":"C:\\Users\\jimal\\OneDrive - BUas\\Desktop\\Block_2B\\Y2B-2023-OT2_Twin\\wandb\\run-20250108_164903-gk6vcvzi\\logs\\debug-core.log"}
+{"time":"2025-01-08T16:49:03.875801+01:00","level":"INFO","msg":"created new stream","id":"gk6vcvzi"}
+{"time":"2025-01-08T16:49:03.875801+01:00","level":"INFO","msg":"stream: started","id":"gk6vcvzi"}
+{"time":"2025-01-08T16:49:03.875801+01:00","level":"INFO","msg":"writer: Do: started","stream_id":"gk6vcvzi"}
+{"time":"2025-01-08T16:49:03.875801+01:00","level":"INFO","msg":"handler: started","stream_id":"gk6vcvzi"}
+{"time":"2025-01-08T16:49:03.875801+01:00","level":"INFO","msg":"sender: started","stream_id":"gk6vcvzi"}
+{"time":"2025-01-08T16:49:04.3288953+01:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-01-08T16:49:16.0942791+01:00","level":"INFO","msg":"tensorboard: no root directory after 10 seconds, using working directory"}
+{"time":"2025-01-08T16:49:16.0997934+01:00","level":"ERROR","msg":"tensorboard: error creating symlink","target":"C:\\Users\\jimal\\OneDrive - BUas\\Desktop\\Block_2B\\Y2B-2023-OT2_Twin\\runs\\gk6vcvzi\\runs\\gk6vcvzi_1\\events.out.tfevents.1736351346.Alfareh.16620.0","symlink":"C:\\Users\\jimal\\OneDrive - BUas\\Desktop\\Block_2B\\Y2B-2023-OT2_Twin\\wandb\\run-20250108_164903-gk6vcvzi\\files\\runs\\gk6vcvzi\\runs\\gk6vcvzi_1\\events.out.tfevents.1736351346.Alfareh.16620.0","error":"symlink C:\\Users\\jimal\\OneDrive - BUas\\Desktop\\Block_2B\\Y2B-2023-OT2_Twin\\runs\\gk6vcvzi\\runs\\gk6vcvzi_1\\events.out.tfevents.1736351346.Alfareh.16620.0 C:\\Users\\jimal\\OneDrive - BUas\\Desktop\\Block_2B\\Y2B-2023-OT2_Twin\\wandb\\run-20250108_164903-gk6vcvzi\\files\\runs\\gk6vcvzi\\runs\\gk6vcvzi_1\\events.out.tfevents.1736351346.Alfareh.16620.0: A required privilege is not held by the client."}
+{"time":"2025-01-08T16:49:23.168627+01:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-01-08T16:49:23.1691367+01:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-01-08T16:49:24.1160134+01:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-01-08T16:49:24.1835081+01:00","level":"INFO","msg":"handler: operation stats","stats":{"operations":[{"desc":"uploading history steps 29-54, summary, console lines 85-108","runtime_seconds":0.0674947}],"total_operations":1}}
+{"time":"2025-01-08T16:49:25.3305924+01:00","level":"INFO","msg":"stream: closing","id":"gk6vcvzi"}
+{"time":"2025-01-08T16:49:25.3305924+01:00","level":"INFO","msg":"handler: closed","stream_id":"gk6vcvzi"}
+{"time":"2025-01-08T16:49:25.3305924+01:00","level":"INFO","msg":"writer: Close: closed","stream_id":"gk6vcvzi"}
+{"time":"2025-01-08T16:49:25.3305924+01:00","level":"INFO","msg":"sender: closed","stream_id":"gk6vcvzi"}
+{"time":"2025-01-08T16:49:25.3311915+01:00","level":"INFO","msg":"stream: closed","id":"gk6vcvzi"}
