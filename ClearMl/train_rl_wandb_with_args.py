@@ -8,23 +8,26 @@ from clearml import Task
 
 # Initialize ClearML Task
 task = Task.init(
-    project_name='Mentor Group J/Group 2/Musaed225739',  
-    task_name='Experiment2'                             # Unique task name
+    project_name='Mentor Group J/Group 2/Musaed225739',  # Replace with your project name
+    task_name='CustomExperiment3'                       # Unique task name
 )
 
 # Set Docker image and queue for ClearML
 task.set_base_docker('deanis/2023y2b-rl:latest')
-task.execute_remotely(queue_name="gpu")  # Changed to GPU queue for variety
+task.execute_remotely(queue_name="default")  # Change queue name if GPU is needed
 
 # Load the API key for W&B
 os.environ['WANDB_API_KEY'] = 'da30da01fd3e0628233dc693966e900058ff208e'
 
 # Parse command-line arguments
 parser = argparse.ArgumentParser()
-parser.add_argument("--learning_rate", type=float, default=0.00015, help="Learning rate for the optimizer")
+parser.add_argument("--learning_rate", type=float, default=0.0001, help="Learning rate for the optimizer")
 parser.add_argument("--batch_size", type=int, default=128, help="Batch size for training")
 parser.add_argument("--n_steps", type=int, default=1024, help="Number of steps to collect per update")
 parser.add_argument("--n_epochs", type=int, default=5, help="Number of training epochs per update")
+parser.add_argument("--vf_coef", type=float, default=0.4, help="Value function coefficient")
+parser.add_argument("--clip_range", type=float, default=0.2, help="PPO clip range")
+parser.add_argument("--gamma", type=float, default=0.95, help="Discount factor")
 parser.add_argument("--time_steps", type=int, default=20000, help="Total number of timesteps for training")
 args = parser.parse_args()
 
@@ -42,7 +45,7 @@ try:
     # Create the environment
     env = gym.make('Pendulum-v1', g=9.81)
 
-    # Initialize the PPO model with unique hyperparameters
+    # Initialize the PPO model with command-line hyperparameters
     model = PPO(
         'MlpPolicy',
         env,
@@ -51,8 +54,9 @@ try:
         batch_size=args.batch_size,
         n_steps=args.n_steps,
         n_epochs=args.n_epochs,
-        gamma=0.95,  # Custom gamma value for discounting
-        clip_range=0.2,  # Custom clip range
+        gamma=args.gamma,
+        clip_range=args.clip_range,
+        vf_coef=args.vf_coef,
         tensorboard_log=f"runs/{run.id}"
     )
 
