@@ -1,4 +1,7 @@
+# Add this at the beginning of your script
 import os
+os.system('pip install --upgrade wandb pydantic')
+
 import argparse
 import wandb
 from wandb.integration.sb3 import WandbCallback
