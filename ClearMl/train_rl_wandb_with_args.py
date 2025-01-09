@@ -1,6 +1,4 @@
 import os
-os.system('pip install --upgrade wandb pydantic')
-
 import argparse
 import wandb
 from wandb.integration.sb3 import WandbCallback
@@ -10,24 +8,24 @@ from clearml import Task
 
 # Initialize ClearML Task
 task = Task.init(
-    project_name='Mentor Group J/Group 2/Musaed225739',  
-    task_name='Experiment2'                              # Unique task name
+    project_name='Mentor Group J/Group 2/Musaed225739',
+    task_name='Experiment2'
 )
 
 # Set Docker image and queue for ClearML
 task.set_base_docker('deanis/2023y2b-rl:latest')
-task.execute_remotely(queue_name="default")  # Set to GPU queue
+task.execute_remotely(queue_name="default")
 
 # Load the API key for W&B
 os.environ['WANDB_API_KEY'] = 'da30da01fd3e0628233dc693966e900058ff208e'
 
 # Parse command-line arguments
 parser = argparse.ArgumentParser()
-parser.add_argument("--learning_rate", type=float, default=0.0002, help="Learning rate for the optimizer")
-parser.add_argument("--batch_size", type=int, default=64, help="Batch size for training")
-parser.add_argument("--n_steps", type=int, default=2048, help="Number of steps to collect per update")
-parser.add_argument("--n_epochs", type=int, default=10, help="Number of training epochs per update")
-parser.add_argument("--time_steps", type=int, default=10000, help="Total number of timesteps for training")
+parser.add_argument("--learning_rate", type=float, default=0.0002)
+parser.add_argument("--batch_size", type=int, default=64)
+parser.add_argument("--n_steps", type=int, default=2048)
+parser.add_argument("--n_epochs", type=int, default=10)
+parser.add_argument("--time_steps", type=int, default=10000)
 args = parser.parse_args()
 
 # Disable symlinks to avoid permission issues on Windows
@@ -38,11 +36,11 @@ try:
     run = wandb.init(
         project="sb3_pendulum_experiment",
         sync_tensorboard=True,
-        settings=wandb.Settings(init_timeout=300)  # Increased timeout
+        settings=wandb.Settings(init_timeout=300)
     )
 
     # Create the environment
-    env = gym.make('Pendulum-v1', g=9.81)  # Replace with custom environment if needed
+    env = gym.make('Pendulum-v1', g=9.81)
 
     # Initialize the PPO model with unique hyperparameters
     model = PPO(
@@ -69,7 +67,7 @@ try:
         verbose=2
     )
 
-    # Train the model incrementally
+    # Train the model incrementally and log metrics
     for i in range(args.time_steps // args.n_steps):
         print(f"Starting iteration {i + 1}")
         model.learn(
