@@ -1,4 +1,3 @@
-# Add this at the beginning of your script
 import os
 os.system('pip install --upgrade wandb pydantic')
 
@@ -95,3 +94,4 @@ finally:
     # Ensure W&B run is closed properly
     if "run" in locals() and run is not None:
         run.finish()
+
