@@ -9,7 +9,10 @@ from clearml import Task
 # Initialize ClearML Task
 task = Task.init(
     project_name='Mentor Group J/Group 2/Musaed225739',  # Replace 'YourName' with your name
-    task_name='Experiment1'              # Change task_name as desired
+    task_name='Experiment1',                            # Change task_name as desired
+    repo='https://github.com/MusaedMusaedSadeqMusaedAl-Fareh225739/CkearML.git',  # Your GitHub repository URL
+    script='ClearMl/train_rl_wandb_with_args.py',        # Path to your script in the repository
+    branch='main'                                       # Branch name
 )
 task.set_base_docker('deanis/2023y2b-rl:latest')  # Set Docker image
 task.execute_remotely(queue_name="default")       # Set queue to default
@@ -80,3 +83,4 @@ finally:
     # Ensure W&B run is closed properly
     if "run" in locals() and run is not None:
         run.finish()
+
