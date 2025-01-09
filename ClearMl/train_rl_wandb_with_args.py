@@ -8,14 +8,18 @@ from clearml import Task
 
 # Initialize ClearML Task
 task = Task.init(
-    project_name='Mentor Group J/Group 2/Musaed225739',  # Replace 'YourName' with your name
-    task_name='Experiment1',                            # Change task_name as desired
-    repo='https://github.com/MusaedMusaedSadeqMusaedAl-Fareh225739/CkearML.git',  # Your GitHub repository URL
-    script='ClearMl/train_rl_wandb_with_args.py',        # Path to your script in the repository
-    branch='main'                                       # Branch name
+    project_name='Mentor Group J/Group 2/Musaed225739',  # Replace with your ClearML project name
+    task_name='Experiment1'                              # Your task name
 )
+
+# Set repository and script details
 task.set_base_docker('deanis/2023y2b-rl:latest')  # Set Docker image
-task.execute_remotely(queue_name="default")       # Set queue to default
+task.set_script(
+    repository='https://github.com/MusaedMusaedSadeqMusaedAl-Fareh225739/CkearML.git',  # GitHub repo URL
+    branch='main',  # Branch name
+    script_path='ClearMl/train_rl_wandb_with_args.py'  # Path to your script in the repo
+)
+task.execute_remotely(queue_name="default")  # Execute remotely on default queue
 
 # Parse command-line arguments
 parser = argparse.ArgumentParser()
