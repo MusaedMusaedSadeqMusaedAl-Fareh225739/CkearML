@@ -12,13 +12,18 @@ task = Task.init(
     task_name='Experiment1'                              # Your task name
 )
 
-# Set repository and script details
+# Set repository details
 task.set_base_docker('deanis/2023y2b-rl:latest')  # Set Docker image
-task.set_script(
-    repository='https://github.com/MusaedMusaedSadeqMusaedAl-Fareh225739/CkearML.git',  # GitHub repo URL
-    branch='main',  # Branch name
-    script_path='ClearMl/train_rl_wandb_with_args.py'  # Path to your script in the repo
+# Using the correct repository setup
+task.connect_configuration(
+    name="repository",
+    configuration={
+        "repository": "https://github.com/MusaedMusaedSadeqMusaedAl-Fareh225739/CkearML.git",
+        "branch": "main",
+        "script": "ClearMl/train_rl_wandb_with_args.py",
+    },
 )
+
 task.execute_remotely(queue_name="default")  # Execute remotely on default queue
 
 # Parse command-line arguments
@@ -87,4 +92,3 @@ finally:
     # Ensure W&B run is closed properly
     if "run" in locals() and run is not None:
         run.finish()
-
