@@ -14,7 +14,7 @@ task = Task.init(
 
 # Set Docker image and queue for ClearML
 task.set_base_docker('deanis/2023y2b-rl:latest')
-task.execute_remotely(queue_name="gpu")  # Set to GPU queue
+task.execute_remotely(queue_name="default")  # Set to GPU queue
 
 # Load the API key for W&B
 os.environ['WANDB_API_KEY'] = 'da30da01fd3e0628233dc693966e900058ff208e'
