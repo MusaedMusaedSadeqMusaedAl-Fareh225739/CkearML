@@ -8,8 +8,8 @@ from clearml import Task
 
 # Initialize ClearML Task
 task = Task.init(
-    project_name='Mentor Group J/Group 2/Musaed225739',  # Change project name as needed
-    task_name='Experiment2'                              # Change task name as needed
+    project_name='Mentor Group J/Group 2/Musaed225739',  
+    task_name='Experiment2'                              # Unique task name
 )
 
 # Set Docker image and queue for ClearML
@@ -17,7 +17,7 @@ task.set_base_docker('deanis/2023y2b-rl:latest')
 task.execute_remotely(queue_name="default")  # Set to GPU queue
 
 # Load the API key for W&B
-os.environ['WANDB_API_KEY'] = 'da30da01fd3e0628233dc693966e900058ff208e'  # Ensure that the API key is correct
+os.environ['WANDB_API_KEY'] = 'da30da01fd3e0628233dc693966e900058ff208e'
 
 # Parse command-line arguments
 parser = argparse.ArgumentParser()
@@ -34,15 +34,15 @@ os.environ["WANDB_DISABLE_SYMLINK"] = "true"
 try:
     # Initialize W&B
     run = wandb.init(
-        project="sb3_pendulum_experiment",  # Ensure project name matches the one on W&B
+        project="sb3_pendulum_experiment",
         sync_tensorboard=True,
-        settings=wandb.Settings(init_timeout=300)  # Increased timeout for larger runs
+        settings=wandb.Settings(init_timeout=300)  # Increased timeout
     )
 
     # Create the environment
-    env = gym.make('Pendulum-v1')  # Pendulum-v1 is used as an example; replace with custom environment if needed
+    env = gym.make('Pendulum-v1', g=9.81)  # Replace with custom environment if needed
 
-    # Initialize the PPO model with the specified hyperparameters
+    # Initialize the PPO model with unique hyperparameters
     model = PPO(
         'MlpPolicy',
         env,
@@ -60,7 +60,7 @@ try:
     save_path = f"models/{run.id}"
     os.makedirs(save_path, exist_ok=True)
 
-    # Create W&B callback for model saving
+    # Create W&B callback
     wandb_callback = WandbCallback(
         model_save_freq=5000,
         model_save_path=save_path,
