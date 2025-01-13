@@ -1,40 +1,16 @@
-import os
+os.system('pip install --upgrade wandb pydantic')
+
 import argparse
 import wandb
 from wandb.integration.sb3 import WandbCallback
 from stable_baselines3 import PPO
 import gymnasium as gym
 from clearml import Task
-import numpy as np
-
-# Custom environment for Opentrons OT-2 (modify this with your actual environment)
-class CustomOpentronsEnv(gym.Env):
-    def __init__(self):
-        super(CustomOpentronsEnv, self).__init__()
-        # Initialize the environment
-        self.target_position = np.array([1.0, 0.0, 0.0])  # Example target position
-        self.current_position = np.array([0.0, 0.0, 0.0])  # Example initial position
-        self.action_space = gym.spaces.Box(low=-1, high=1, shape=(3,), dtype=np.float32)  # 3D movement space
-        self.observation_space = gym.spaces.Box(low=-np.inf, high=np.inf, shape=(3,), dtype=np.float32)
-
-    def reset(self):
-        self.current_position = np.array([0.0, 0.0, 0.0])
-        return self.current_position
-
-    def step(self, action):
-        # Apply action to the environment (e.g., move robot arm)
-        self.current_position += action  # Example movement logic
-
-        # Reward function based on distance to target
-        reward = -np.linalg.norm(self.target_position - self.current_position)  # Negative distance
-        done = np.linalg.norm(self.target_position - self.current_position) < 0.01  # Done condition if close enough to target
-
-        return self.current_position, reward, done, {}
 
 # Initialize ClearML Task
 task = Task.init(
     project_name='Mentor Group J/Group 2/Musaed225739',  
-    task_name='Experiment2'  # Unique task name
+    task_name='Experiment2'                              # Unique task name
 )
 
 # Set Docker image and queue for ClearML
@@ -59,13 +35,13 @@ os.environ["WANDB_DISABLE_SYMLINK"] = "true"
 try:
     # Initialize W&B
     run = wandb.init(
-        project="sb3_pendulum_experiment",  # Change to your project
+        project="sb3_pendulum_experiment",
         sync_tensorboard=True,
         settings=wandb.Settings(init_timeout=300)  # Increased timeout
     )
 
-    # Create the custom environment for Opentrons OT-2
-    env = CustomOpentronsEnv()
+    # Create the environment
+    env = gym.make('Pendulum-v1', g=9.81)  # Replace with custom environment if needed
 
     # Initialize the PPO model with unique hyperparameters
     model = PPO(
@@ -107,14 +83,4 @@ try:
         print(f"Model saved after iteration {i + 1}")
 
     print("Training completed successfully!")
-
-except wandb.errors.CommError as e:
-    print(f"W&B Communication Error: {e}")
-    print("Consider running in offline mode if this persists.")
-except Exception as e:
-    print(f"An unexpected error occurred: {e}")
-finally:
-    # Ensure W&B run is closed properly
-    if "run" in locals() and run is not None:
-        run.finish()
 
