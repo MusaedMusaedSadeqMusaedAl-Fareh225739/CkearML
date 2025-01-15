@@ -102,7 +102,7 @@ class OT2Env(gym.Env):
         reward = float(-distance_to_goal)
 
         # Termination condition: pipette reaches the goal
-        goal_reached = distance_to_goal < 0.05
+        goal_reached = distance_to_goal < 0.0005
         terminated = bool(goal_reached)
 
         # Truncation condition: max steps reached
@@ -127,4 +127,5 @@ class OT2Env(gym.Env):
         """
         Close the simulation and clean up resources.
         """
+    
         self.sim.close()
