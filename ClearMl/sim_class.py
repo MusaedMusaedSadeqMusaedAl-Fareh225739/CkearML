@@ -438,16 +438,3 @@ class Simulation:
     def close(self):
         p.disconnect()
 
-
-
-
-
-
-
-
-
-
-    
-
-
-
