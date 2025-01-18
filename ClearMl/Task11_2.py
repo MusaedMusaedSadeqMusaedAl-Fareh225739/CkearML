@@ -7,9 +7,9 @@ import gymnasium as gym
 from clearml import Task
 from dotenv import load_dotenv
 
-# Add the directory containing ot2_gym_wrapper_V2.py to the Python path
+# Add the ClearMl directory to the Python path
 import sys
-sys.path.append(r"C:\Users\jimal\OneDrive - BUas\Desktop\Block_2B\Y2B-2023-OT2_Twin")
+sys.path.append("/path/to/CkearML/ClearMl")
 
 # Import the custom environment
 from ot2_gym_wrapper_V2 import OT2Env
@@ -25,7 +25,7 @@ task = Task.init(
 
 # Set Docker image and queue for ClearML
 task.set_base_docker('deanis/2023y2b-rl:latest')
-task.execute_remotely(queue_name="default")  # Use appropriate queue
+task.execute_remotely(queue_name="default")
 
 # Load the API key for W&B
 os.environ['WANDB_API_KEY'] = os.getenv('WANDB_API_KEY', '')
