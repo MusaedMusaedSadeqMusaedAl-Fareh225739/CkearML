@@ -9,7 +9,7 @@ from dotenv import load_dotenv
 
 # Add the ClearMl directory to the Python path
 import sys
-sys.path.append("/path/to/CkearML/ClearMl")
+sys.path.append("/path/to/CkearML/ClearMl")  # Update this path to the correct location
 
 # Import the custom environment
 from ot2_gym_wrapper_V2 import OT2Env
