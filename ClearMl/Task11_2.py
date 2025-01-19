@@ -30,11 +30,13 @@ from ot2_gym_wrapper_V2 import OT2Env
 # Load environment variables
 load_dotenv()
 
+# Set WANDB API Key directly in the script
+os.environ['WANDB_API_KEY'] = 'da30da01fd3e0628233dc693966e900058ff208e'  # Replace with your actual API key
+
 # Verify WANDB_API_KEY is set
 wandb_api_key = os.getenv('WANDB_API_KEY', '')
 if not wandb_api_key:
     raise ValueError("WANDB_API_KEY environment variable not set. Please provide your API key.")
-os.environ['WANDB_API_KEY'] = wandb_api_key
 
 # Initialize ClearML Task
 task = Task.init(
@@ -113,4 +115,3 @@ except Exception as e:
 finally:
     if "run" in locals() and run is not None:
         run.finish()
-
