@@ -6,10 +6,10 @@ from stable_baselines3 import PPO
 import gymnasium as gym
 from clearml import Task
 from dotenv import load_dotenv
+import sys
 
 # Add the ClearML directory to the Python path
-import sys
-sys.path.append(os.path.abspath("/path/to/CkearML/ClearMl"))  # Update the path
+sys.path.append(os.path.abspath("/path/to/CkearML/ClearMl"))  # Update this to the actual path
 
 # Import the custom environment
 from ot2_gym_wrapper_V2 import OT2Env
@@ -17,16 +17,16 @@ from ot2_gym_wrapper_V2 import OT2Env
 # Load environment variables
 load_dotenv()
 
-# Check and set WANDB API Key
-wandb_api_key = os.getenv('WANDB_API_KEY')
+# Verify WANDB_API_KEY is set
+wandb_api_key = os.getenv('WANDB_API_KEY', '')
 if not wandb_api_key:
-    raise ValueError("WANDB_API_KEY environment variable not set.")
+    raise ValueError("WANDB_API_KEY environment variable not set. Please provide your API key.")
 os.environ['WANDB_API_KEY'] = wandb_api_key
 
 # Initialize ClearML Task
 task = Task.init(
-    project_name='Mentor Group J/Group 2/Musaed225739',
-    task_name='Experiment2'
+    project_name='Mentor Group J/Group 2/Musaed225739',  # Replace with your project name
+    task_name='Experiment2'  # Replace with your task name
 )
 
 # Set Docker image and queue for ClearML
@@ -47,7 +47,7 @@ args = parser.parse_args()
 
 # Initialize W&B
 run = wandb.init(
-    project="task11",
+    project="task11",  # Replace with your W&B project name
     sync_tensorboard=True,
     settings=wandb.Settings(init_timeout=300)
 )
