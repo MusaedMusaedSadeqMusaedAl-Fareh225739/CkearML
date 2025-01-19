@@ -6,11 +6,9 @@ from stable_baselines3 import PPO
 import gymnasium as gym
 from clearml import Task
 from dotenv import load_dotenv
-
 # Add the ClearMl directory to the Python path
 import sys
-sys.path.append("/path/to/CkearML/ClearMl")  # Update this path to the correct location
-
+sys.path.append(r"C:\Users\jimal\OneDrive - BUas\Desktop\CkearML\ClearMl")
 # Import the custom environment
 from ot2_gym_wrapper_V2 import OT2Env
 
