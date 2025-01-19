@@ -7,6 +7,19 @@ import gymnasium as gym
 from clearml import Task
 from dotenv import load_dotenv
 import sys
+import glob
+
+# Function to clean up .pyc files
+def clean_pyc_files():
+    for pyc_file in glob.glob("**/*.pyc", recursive=True):
+        try:
+            os.remove(pyc_file)
+            print(f"Removed: {pyc_file}")
+        except Exception as e:
+            print(f"Failed to remove {pyc_file}: {e}")
+
+# Clean up .pyc files before proceeding
+clean_pyc_files()
 
 # Add the ClearML directory to the Python path
 sys.path.append(os.path.abspath("/path/to/CkearML/ClearMl"))  # Update this to the actual path
@@ -100,3 +113,4 @@ except Exception as e:
 finally:
     if "run" in locals() and run is not None:
         run.finish()
+
