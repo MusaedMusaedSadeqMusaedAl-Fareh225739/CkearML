@@ -17,10 +17,16 @@ from ot2_gym_wrapper_V2 import OT2Env
 # Load environment variables
 load_dotenv()
 
+# Check and set WANDB API Key
+wandb_api_key = os.getenv('WANDB_API_KEY')
+if not wandb_api_key:
+    raise ValueError("WANDB_API_KEY environment variable not set.")
+os.environ['WANDB_API_KEY'] = wandb_api_key
+
 # Initialize ClearML Task
 task = Task.init(
-    project_name='Mentor Group J/Group 2/Musaed225739',  # Your project name
-    task_name='Experiment2'  # Your task name
+    project_name='Mentor Group J/Group 2/Musaed225739',
+    task_name='Experiment2'
 )
 
 # Set Docker image and queue for ClearML
@@ -39,13 +45,6 @@ parser.add_argument("--value_coefficient", type=float, default=0.5, help="Coeffi
 parser.add_argument("--time_steps", type=int, default=5000000, help="Total number of timesteps for training")
 args = parser.parse_args()
 
-# Set W&B API Key
-wandb_api_key = os.getenv('WANDB_API_KEY', '')
-if not wandb_api_key:
-    raise ValueError("WANDB_API_KEY environment variable not set.")
-
-os.environ['WANDB_API_KEY'] = wandb_api_key
-
 # Initialize W&B
 run = wandb.init(
     project="task11",
@@ -53,7 +52,7 @@ run = wandb.init(
     settings=wandb.Settings(init_timeout=300)
 )
 
-# Custom Environment
+# Create the custom environment
 env = OT2Env()
 
 # Initialize PPO model
@@ -99,4 +98,5 @@ try:
 except Exception as e:
     print(f"An error occurred: {e}")
 finally:
-    run.finish()
+    if "run" in locals() and run is not None:
+        run.finish()
