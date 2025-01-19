@@ -7,9 +7,9 @@ import gymnasium as gym
 from clearml import Task
 from dotenv import load_dotenv
 
-# Add the ClearMl directory to the Python path
+# Add the ClearML directory to the Python path
 import sys
-sys.path.append("/path/to/CkearML/ClearMl")  # Update this path to the correct location
+sys.path.append(os.path.abspath("/path/to/CkearML/ClearMl"))  # Update the path
 
 # Import the custom environment
 from ot2_gym_wrapper_V2 import OT2Env
@@ -25,10 +25,7 @@ task = Task.init(
 
 # Set Docker image and queue for ClearML
 task.set_base_docker('deanis/2023y2b-rl:latest')
-task.execute_remotely(queue_name="default")
-
-# Load the API key for W&B
-os.environ['WANDB_API_KEY'] = os.getenv('WANDB_API_KEY', '')
+task.execute_remotely(queue_name="default", clone=False)
 
 # Parse command-line arguments
 parser = argparse.ArgumentParser()
@@ -42,47 +39,51 @@ parser.add_argument("--value_coefficient", type=float, default=0.5, help="Coeffi
 parser.add_argument("--time_steps", type=int, default=5000000, help="Total number of timesteps for training")
 args = parser.parse_args()
 
-# Disable symlinks for W&B on Windows
-os.environ["WANDB_DISABLE_SYMLINK"] = "true"
+# Set W&B API Key
+wandb_api_key = os.getenv('WANDB_API_KEY', '')
+if not wandb_api_key:
+    raise ValueError("WANDB_API_KEY environment variable not set.")
 
+os.environ['WANDB_API_KEY'] = wandb_api_key
+
+# Initialize W&B
+run = wandb.init(
+    project="task11",
+    sync_tensorboard=True,
+    settings=wandb.Settings(init_timeout=300)
+)
+
+# Custom Environment
+env = OT2Env()
+
+# Initialize PPO model
+model = PPO(
+    'MlpPolicy',
+    env,
+    verbose=1,
+    learning_rate=args.learning_rate,
+    batch_size=args.batch_size,
+    n_steps=args.n_steps,
+    n_epochs=args.n_epochs,
+    gamma=args.gamma,
+    clip_range=args.clip_range,
+    vf_coef=args.value_coefficient,
+    tensorboard_log=f"runs/{run.id}"
+)
+
+# Ensure model directory exists
+save_path = f"models/{run.id}"
+os.makedirs(save_path, exist_ok=True)
+
+# Create W&B callback
+wandb_callback = WandbCallback(
+    model_save_freq=100000,
+    model_save_path=save_path,
+    verbose=2
+)
+
+# Train the model incrementally
 try:
-    # Initialize W&B
-    run = wandb.init(
-        project="task11",  # Keep the project name from the first script
-        sync_tensorboard=True,
-        settings=wandb.Settings(init_timeout=300)
-    )
-
-    # Create the custom environment (OT2Env)
-    env = OT2Env()  # Use the custom environment
-
-    # Initialize PPO model
-    model = PPO(
-        'MlpPolicy',
-        env,
-        verbose=1,
-        learning_rate=args.learning_rate,
-        batch_size=args.batch_size,
-        n_steps=args.n_steps,
-        n_epochs=args.n_epochs,
-        gamma=args.gamma,
-        clip_range=args.clip_range,
-        vf_coef=args.value_coefficient,  # Value coefficient from the first script
-        tensorboard_log=f"runs/{run.id}"
-    )
-
-    # Ensure model directory exists
-    save_path = f"models/{run.id}"
-    os.makedirs(save_path, exist_ok=True)
-
-    # Create W&B callback
-    wandb_callback = WandbCallback(
-        model_save_freq=100000,  # Save model every 100,000 steps (from the first script)
-        model_save_path=save_path,
-        verbose=2
-    )
-
-    # Train the model incrementally
     for i in range(args.time_steps // args.n_steps):
         print(f"Starting iteration {i + 1}")
         model.learn(
@@ -94,13 +95,8 @@ try:
         )
         model.save(f"{save_path}/model_step_{(i + 1) * args.n_steps}.zip")
         print(f"Model saved after iteration {i + 1}")
-
     print("Training completed successfully!")
-
-except wandb.errors.CommError as e:
-    print(f"W&B Communication Error: {e}")
 except Exception as e:
-    print(f"An unexpected error occurred: {e}")
+    print(f"An error occurred: {e}")
 finally:
-    if "run" in locals() and run is not None:
-        run.finish()
+    run.finish()
