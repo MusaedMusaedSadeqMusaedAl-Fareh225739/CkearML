@@ -72,7 +72,7 @@ model = PPO(
 )
 
 # Ensure model directory exists
-save_path = r"C:\Users\jimal\anaconda3\envs\Y2B\Lib\site-packages\clearml\models"
+save_path = r"C:\Users\jimal\OneDrive - BUas\Pictures\CkearML\ClearMlmodels"
 os.makedirs(save_path, exist_ok=True)
 
 # Create W&B callback
