@@ -6,23 +6,10 @@ from stable_baselines3 import PPO
 import gymnasium as gym
 from clearml import Task
 from dotenv import load_dotenv
-import sys
-import glob
-
-# Function to clean up .pyc files
-def clean_pyc_files():
-    for pyc_file in glob.glob("**/*.pyc", recursive=True):
-        try:
-            os.remove(pyc_file)
-            print(f"Removed: {pyc_file}")
-        except Exception as e:
-            print(f"Failed to remove {pyc_file}: {e}")
-
-# Clean up .pyc files before proceeding
-clean_pyc_files()
 
 # Add the ClearML directory to the Python path
-sys.path.append(os.path.abspath("/path/to/CkearML/ClearMl"))  # Update this to the actual path
+import sys
+sys.path.append(os.path.abspath("/path/to/CkearML/ClearMl"))  # Update the path
 
 # Import the custom environment
 from ot2_gym_wrapper_V2 import OT2Env
@@ -30,16 +17,21 @@ from ot2_gym_wrapper_V2 import OT2Env
 # Load environment variables
 load_dotenv()
 
+<<<<<<< HEAD
+=======
+# Set WANDB API Key directly in the script
+os.environ['WANDB_API_KEY'] = 'da30da01fd3e0628233dc693966e900058ff208e'  # Replace with your actual API key
+
 # Verify WANDB_API_KEY is set
 wandb_api_key = os.getenv('WANDB_API_KEY', '')
 if not wandb_api_key:
     raise ValueError("WANDB_API_KEY environment variable not set. Please provide your API key.")
-os.environ['WANDB_API_KEY'] = wandb_api_key
 
+>>>>>>> 0f549969caa7e8a5bf8b2d4c20be594cf25afc31
 # Initialize ClearML Task
 task = Task.init(
-    project_name='Mentor Group J/Group 2/Musaed225739',  # Replace with your project name
-    task_name='Experiment2'  # Replace with your task name
+    project_name='Mentor Group J/Group 2/Musaed225739',  # Your project name
+    task_name='Experiment2'  # Your task name
 )
 
 # Set Docker image and queue for ClearML
@@ -58,14 +50,21 @@ parser.add_argument("--value_coefficient", type=float, default=0.5, help="Coeffi
 parser.add_argument("--time_steps", type=int, default=5000000, help="Total number of timesteps for training")
 args = parser.parse_args()
 
+# Set W&B API Key
+wandb_api_key = os.getenv('WANDB_API_KEY', '')
+if not wandb_api_key:
+    raise ValueError("WANDB_API_KEY environment variable not set.")
+
+os.environ['WANDB_API_KEY'] = wandb_api_key
+
 # Initialize W&B
 run = wandb.init(
-    project="task11",  # Replace with your W&B project name
+    project="task11",
     sync_tensorboard=True,
     settings=wandb.Settings(init_timeout=300)
 )
 
-# Create the custom environment
+# Custom Environment
 env = OT2Env()
 
 # Initialize PPO model
@@ -111,6 +110,9 @@ try:
 except Exception as e:
     print(f"An error occurred: {e}")
 finally:
+<<<<<<< HEAD
+    run.finish()
+=======
     if "run" in locals() and run is not None:
         run.finish()
-
+>>>>>>> 0f549969caa7e8a5bf8b2d4c20be594cf25afc31

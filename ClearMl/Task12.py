@@ -1,104 +1,164 @@
-from simple_pid import PID
+import time
 import numpy as np
-from ot2_gym_wrapper_V2 import OT2Env
-import random
+import matplotlib.pyplot as plt
+import json
+from ot2_gym_wrapper_V2 import OT2Env  # Your simulation environment
+from simple_pid import PID
+from stable_baselines3 import PPO  # Your trained RL model
 
-class PIDRandomPositionSimulation:
-    def __init__(self):
-        # Initialize the OT2 Gym Environment
-        self.env = OT2Env(render=True)
-        self.dt = 0.1  # Time step
-
-        # Initialize PID controllers for each axis
-        self.pid_x = PID(10, 5.5,3.0)
-        self.pid_y = PID(10, 5.5, 3.0)
-        self.pid_z = PID(10, 5.5, 3.0)
+class PIDController:
+    def __init__(self, Kp, Ki, Kd):
+        self.pid_x = PID(Kp, Ki, Kd)
+        self.pid_y = PID(Kp, Ki, Kd)
+        self.pid_z = PID(Kp, Ki, Kd)
 
         # Set PID output limits (velocity bounds)
         for pid in [self.pid_x, self.pid_y, self.pid_z]:
             pid.output_limits = (-1.0, 1.0)
 
-        # Define bounds of the working envelope
-        self.bounds = {
-            "x": [0.2531, -0.1872],
-            "y": [0.2201, -0.1711],
-            "z": [0.2896, 0.1691]
-        }
+    def calculate_action(self, current_position, target_position):
+        self.pid_x.setpoint = target_position[0]
+        self.pid_y.setpoint = target_position[1]
+        self.pid_z.setpoint = target_position[2]
 
-        self.positions = []
-        self.distances = []
-    
-    def move_to_random_position(self):
-        # Generate a random target position within the bounds
-        target = [
-            random.uniform(self.bounds["x"][1], self.bounds["x"][0]),
-            random.uniform(self.bounds["y"][1], self.bounds["y"][0]),
-            random.uniform(self.bounds["z"][1], self.bounds["z"][0]),
-        ]
+        vel_x = self.pid_x(current_position[0])
+        vel_y = self.pid_y(current_position[1])
+        vel_z = self.pid_z(current_position[2])
 
-        print(f"Moving to Random Position: {target}")
+        return [vel_x, vel_y, vel_z]
 
-        # Set PID setpoints for the target position
-        self.pid_x.setpoint = target[0]
-        self.pid_y.setpoint = target[1]
-        self.pid_z.setpoint = target[2]
+def benchmark_controller(env, controller, goal_positions, controller_type):
+    """
+    Benchmarks the performance of a given controller (PID or RL).
 
-        # Reset environment and get initial position
-        observation, _ = self.env.reset()
-        pipette_position = observation[:3]
+    Args:
+        env: The simulation environment.
+        controller: The controller to benchmark (PID or RL).
+        goal_positions: List of goal positions for the benchmarking process.
+        controller_type: Type of controller ("PID" or "RL").
 
-        # Reset tracking
-        distances = []  # Track distances to target
-        last_position = None
+    Returns:
+        results: A list of dictionaries containing metrics for each trial.
+    """
+    results = []
 
-        # Use a for loop instead of while
-        for step in range(1000):
-            # Compute PID-controlled velocities
-            vel_x = self.pid_x(pipette_position[0])
-            vel_y = self.pid_y(pipette_position[1])
-            vel_z = self.pid_z(pipette_position[2])
+    for goal in goal_positions:
+        obs, _ = env.reset()
+        env.goal_position = goal  # Set the goal position
+        start_time = time.time()  # Start the timer
 
-            # Apply velocities to the simulation
-            action = [vel_x, vel_y, vel_z]
-            observation, _, _, _, _ = self.env.step(action)
+        while True:
+            # Determine the action based on the controller type
+            if controller_type == "RL":
+                action, _ = controller.predict(obs, deterministic=True)
+            elif controller_type == "PID":
+                action = controller.calculate_action(obs[:3], goal)
 
-            # Update pipette position
-            pipette_position = observation[:3]
+            # Take a step in the environment
+            obs, reward, terminated, truncated, info = env.step(action)
 
-            # Calculate distance to target
-            distance_to_target = np.linalg.norm(pipette_position - target)
-            distances.append(distance_to_target)
+            # Extract current position and calculate distance to goal
+            current_pos = obs[:3]
+            distance_to_goal = np.linalg.norm(np.array(goal) - np.array(current_pos))
 
-            if distance_to_target < 0.001:  # 1 mm accuracy
-                print(f"Target reached in {step+1} steps.")
+            # Check if the goal is reached
+            if distance_to_goal < 0.001:  # Accuracy threshold (1 mm)
                 break
 
-            # Record position
-            last_position = pipette_position
+            # Check if the episode is terminated or truncated
+            if terminated or truncated:
+                obs, _ = env.reset()
+                break
 
-        # Log accuracy
-        print(f"Final Position: {last_position}, Distance to Target: {distances[-1]:.4f} m")
+        # Record elapsed time
+        elapsed_time = time.time() - start_time
+        # Append results
+        results.append({
+            "goal": goal,
+            "final_position": current_pos.tolist(),
+            "error": distance_to_goal,
+            "time": elapsed_time
+        })
 
-        return step, target, distances[-1]
+    return results
 
-    def simulate(self, num_positions=5):
-        results = []
-        for i in range(num_positions):
-            steps, target, final_distance = self.move_to_random_position()
-            status = "Success" if final_distance < 0.001 else "Failure"
-            print(f"Position {i+1} | Steps: {steps} | Target: {target} | Status: {status} | Final Distance: {final_distance:.4f} m")
-            results.append((target, status, final_distance))
+def visualize_results(pid_results, rl_results):
+    """
+    Visualizes the benchmarking results for speed and accuracy.
 
-        return results
+    Args:
+        pid_results: Benchmarking results for the PID controller.
+        rl_results: Benchmarking results for the RL controller.
+    """
+    # Extract average times and errors
+    controllers = ["PID", "RL"]
+    avg_times = [
+        np.mean([r["time"] for r in pid_results]),
+        np.mean([r["time"] for r in rl_results])
+    ]
+    avg_errors = [
+        np.mean([r["error"] for r in pid_results]),
+        np.mean([r["error"] for r in rl_results])
+    ]
 
-    def close(self):
-        self.env.close()
+    # Plot speed comparison
+    plt.figure()
+    plt.bar(controllers, avg_times, color=['blue', 'orange'])
+    plt.title("Speed Comparison")
+    plt.ylabel("Time (seconds)")
+    plt.grid(True)
+    plt.savefig("speed_comparison.png")
+    plt.show()
+
+    # Plot accuracy comparison
+    plt.figure()
+    plt.bar(controllers, avg_errors, color=['blue', 'orange'])
+    plt.title("Accuracy Comparison")
+    plt.ylabel("Error (meters)")
+    plt.grid(True)
+    plt.savefig("accuracy_comparison.png")
+    plt.show()
 
 if __name__ == "__main__":
-    simulation = PIDRandomPositionSimulation()
-    results = simulation.simulate(num_positions=5)
-    simulation.close()
+    # Initialize the simulation environment
+    env = OT2Env(render=False)  # Your Gym environment
 
-    print("\nSimulation Results:")
-    for i, (target, status, final_distance) in enumerate(results):
-        print(f"Position {i+1}: Target {target} | Status: {status} | Final Distance: {final_distance:.4f} m")
+    # Initialize the PID controller with tuned gains
+    Kp, Ki, Kd = 10.0, 5.5, 3.0  # Tuned PID gains
+    pid_controller = PIDController(Kp, Ki, Kd)
+    print(f"PID Controller initialized with Kp={Kp}, Ki={Ki}, Kd={Kd}")
+
+    # Load the trained RL model
+    rl_model_path = "models/best_rl_model.zip"  # Adjust path as needed
+    if not os.path.exists(rl_model_path):
+        raise FileNotFoundError(f"Trained RL model not found at {rl_model_path}. Train the model before benchmarking.")
+
+    rl_controller = PPO.load(rl_model_path)
+    print(f"RL Controller loaded from {rl_model_path}")
+
+    # Define goal positions for the benchmarking
+    goal_positions = [
+        [0.1, 0.1, 0.05], 
+        [0.15, 0.1, 0.07], 
+        [0.05, 0.15, 0.06]
+    ]
+
+    # Benchmark the PID controller
+    print("Benchmarking PID controller...")
+    pid_results = benchmark_controller(env, pid_controller, goal_positions, "PID")
+
+    # Benchmark the RL controller
+    print("Benchmarking RL controller...")
+    rl_results = benchmark_controller(env, rl_controller, goal_positions, "RL")
+
+    # Save results to JSON files
+    with open("pid_results.json", "w") as f:
+        json.dump(pid_results, f, indent=4)
+
+    with open("rl_results.json", "w") as f:
+        json.dump(rl_results, f, indent=4)
+
+    print("Results saved successfully!")
+
+    # Visualize results
+    visualize_results(pid_results, rl_results)
