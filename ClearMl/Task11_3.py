@@ -9,7 +9,7 @@ from dotenv import load_dotenv
 
 # Add the ClearML directory to the Python path
 import sys
-sys.path.append(os.path.abspath("/path/to/CkearML/ClearMl"))  # Update the path
+sys.path.append(os.path.abspath("/path/to/ClearML/ClearMl"))  # Update the path
 
 # Import the custom environment
 from ot2_gym_wrapper_V2 import OT2Env
@@ -48,7 +48,7 @@ os.environ['WANDB_API_KEY'] = wandb_api_key
 
 # Initialize W&B
 run = wandb.init(
-    project="task11",
+    project="task11_2",
     sync_tensorboard=True,
     settings=wandb.Settings(init_timeout=300)
 )
@@ -72,11 +72,7 @@ model = PPO(
 )
 
 # Ensure model directory exists
-<<<<<<< HEAD
 save_path = r"C:\Users\jimal\OneDrive - BUas\Pictures\CkearML\ClearMl\models"
-=======
-save_path = r"C:\Users\jimal\OneDrive - BUas\Pictures\CkearML\ClearMlmodels"
->>>>>>> 0f549969caa7e8a5bf8b2d4c20be594cf25afc31
 os.makedirs(save_path, exist_ok=True)
 
 # Create W&B callback
@@ -97,11 +93,12 @@ try:
             reset_num_timesteps=False,
             tb_log_name=f"runs/{run.id}",
         )
-        model_save_file = f"{save_path}/model_step_{(i + 1) * args.n_steps}.zip"
+        model_save_file = os.path.join(save_path, f"model_step_{(i + 1) * args.n_steps}.zip")
         model.save(model_save_file)
         print(f"Model saved successfully to: {model_save_file} after iteration {i + 1}")
     print("Training completed successfully!")
 except Exception as e:
     print(f"An error occurred: {e}")
 finally:
-    run.finish()
+    if "run" in locals() and run is not None:
+        run.finish()

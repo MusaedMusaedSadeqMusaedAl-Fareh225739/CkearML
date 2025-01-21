@@ -7,27 +7,12 @@ import gymnasium as gym
 from clearml import Task
 from dotenv import load_dotenv
 
-# Add the ClearML directory to the Python path
-import sys
-sys.path.append(os.path.abspath("/path/to/CkearML/ClearMl"))  # Update the path
-
 # Import the custom environment
 from ot2_gym_wrapper_V2 import OT2Env
 
 # Load environment variables
 load_dotenv()
 
-<<<<<<< HEAD
-=======
-# Set WANDB API Key directly in the script
-os.environ['WANDB_API_KEY'] = 'da30da01fd3e0628233dc693966e900058ff208e'  # Replace with your actual API key
-
-# Verify WANDB_API_KEY is set
-wandb_api_key = os.getenv('WANDB_API_KEY', '')
-if not wandb_api_key:
-    raise ValueError("WANDB_API_KEY environment variable not set. Please provide your API key.")
-
->>>>>>> 0f549969caa7e8a5bf8b2d4c20be594cf25afc31
 # Initialize ClearML Task
 task = Task.init(
     project_name='Mentor Group J/Group 2/Musaed225739',  # Your project name
@@ -83,7 +68,7 @@ model = PPO(
 )
 
 # Ensure model directory exists
-save_path = f"models/{run.id}"
+save_path = r"C:\\Users\\jimal\\anaconda3\\envs\\Y2B\\Lib\\site-packages\\clearml\\models"
 os.makedirs(save_path, exist_ok=True)
 
 # Create W&B callback
@@ -104,15 +89,12 @@ try:
             reset_num_timesteps=False,
             tb_log_name=f"runs/{run.id}",
         )
-        model.save(f"{save_path}/model_step_{(i + 1) * args.n_steps}.zip")
-        print(f"Model saved after iteration {i + 1}")
+        model_save_file = f"{save_path}/model_step_{(i + 1) * args.n_steps}.zip"
+        model.save(model_save_file)
+        print(f"Model saved successfully to: {model_save_file} after iteration {i + 1}")
     print("Training completed successfully!")
 except Exception as e:
     print(f"An error occurred: {e}")
 finally:
-<<<<<<< HEAD
-    run.finish()
-=======
     if "run" in locals() and run is not None:
         run.finish()
->>>>>>> 0f549969caa7e8a5bf8b2d4c20be594cf25afc31
