@@ -9,7 +9,7 @@ from dotenv import load_dotenv
 
 # Add the ClearML directory to the Python path
 import sys
-sys.path.append(os.path.abspath("/path/to/ClearML/ClearMl"))  # Update the path
+sys.path.append(os.path.abspath("./ClearMl"))  # Update the path if needed
 
 # Import the custom environment
 from ot2_gym_wrapper_V2 import OT2Env
@@ -48,11 +48,15 @@ parser.add_argument("--time_steps", type=int, default=5000000, help="Total numbe
 args = parser.parse_args()
 
 # Initialize W&B
-run = wandb.init(
-    project="task11_2",
-    sync_tensorboard=True,
-    settings=wandb.Settings(init_timeout=300)
-)
+try:
+    run = wandb.init(
+        project="task11_2",
+        sync_tensorboard=True,
+        settings=wandb.Settings(init_timeout=300)
+    )
+except Exception as e:
+    print(f"Failed to initialize W&B: {e}")
+    run = None
 
 # Custom Environment
 env = OT2Env()
@@ -69,19 +73,21 @@ model = PPO(
     gamma=args.gamma,
     clip_range=args.clip_range,
     vf_coef=args.value_coefficient,
-    tensorboard_log=f"runs/{run.id}"
+    tensorboard_log=f"runs/{run.id if run else 'local_run'}"
 )
 
 # Ensure model directory exists
-save_path = r"C:\Users\jimal\OneDrive - BUas\Pictures\CkearML\ClearMl\models"
+save_path = os.path.abspath("./models")
 os.makedirs(save_path, exist_ok=True)
 
 # Create W&B callback
-wandb_callback = WandbCallback(
-    model_save_freq=100000,
-    model_save_path=save_path,
-    verbose=2
-)
+wandb_callback = None
+if run:
+    wandb_callback = WandbCallback(
+        model_save_freq=100000,
+        model_save_path=save_path,
+        verbose=2
+    )
 
 # Train the model incrementally
 try:
@@ -92,15 +98,15 @@ try:
             callback=wandb_callback,
             progress_bar=True,
             reset_num_timesteps=False,
-            tb_log_name=f"runs/{run.id}",
+            tb_log_name=f"runs/{run.id if run else 'local_run'}",
         )
         model_save_file = os.path.join(save_path, f"model_step_{(i + 1) * args.n_steps}.zip")
         model.save(model_save_file)
         print(f"Model saved successfully to: {model_save_file} after iteration {i + 1}")
     print("Training completed successfully!")
 except Exception as e:
-    print(f"An error occurred: {e}")
+    print(f"An error occurred during training: {e}")
 finally:
-    if "run" in locals() and run is not None:
+    if run:
         run.finish()
 
