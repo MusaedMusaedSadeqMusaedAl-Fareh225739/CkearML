@@ -27,7 +27,7 @@ The goal was to evaluate **how hyperparameters influence stability, convergence 
 
 ---
 
-## 🖼️ Supporting Image
+##  Supporting Image
 
 Add the screenshot to the repo under `/images/`:
 
@@ -37,7 +37,7 @@ Add the screenshot to the repo under `/images/`:
 
 ---
 
-## 🔍 **Analysis & Interpretation**
+##  **Analysis & Interpretation**
 
 ### **1. Learning Rate**
 
@@ -57,7 +57,7 @@ Add the screenshot to the repo under `/images/`:
 
 ---
 
-## 🏆 **Final Evaluation — Best Model**
+##  **Final Evaluation — Best Model**
 
 **Model (Task11) (Edoardo)**
 
@@ -74,7 +74,7 @@ This model demonstrated:
 
 ---
 
-## 📘 **Conclusion**
+##  **Conclusion**
 
 Through systematic hyperparameter tuning and benchmarking, we demonstrated the ability to:
 
