@@ -1,114 +1,90 @@
-# Model Evaluation Documentation
+---
 
-## Overview
-This document describes the evaluation of a reinforcement learning model trained using the Proximal Policy Optimization (PPO) algorithm. The model was tested in a custom environment (`OT2Env`) with PyBullet for physics simulation. The evaluation used a fixed goal position to measure the model's performance.
+#  **README Section — Model Training, Hyperparameters & Performance Benchmarking**
+
+##  Reinforcement Learning Model Experiments
+
+To meet the requirements for training and comparing RL models, we experimented with **10 different model configurations**, varying learning rate, batch size, and gamma.
+All models were trained on the same task and environment to ensure fair comparison.
+
+The goal was to evaluate **how hyperparameters influence stability, convergence speed, and final error**.
 
 ---
 
-## Execution Summary
-### Environment Setup
-- **Environment**: OT2Env (Custom Wrapper v2)
-- **Physics Engine**: PyBullet
-- **GPU**: NVIDIA GeForce RTX 4060 Laptop GPU
-- **OpenGL Version**: 4.6.0 (NVIDIA 566.07)
+##  **Hyperparameter Comparison Table**
 
-### Evaluation Parameters
-- **Fixed Goal Position**: `[0.1, 0.1, 0.2]` (in meters)
-- **Number of Episodes**: 10
-- **Maximum Steps per Episode**: 1000
-
-### Results
-| Metric             | Value       |
-|--------------------|-------------|
-| **Avg Accuracy**   | 0.0008 m    |
-| **Std Dev**        | 0.0001 m    |
-| **Avg Steps**      | 57.10       |
-
-- **Avg Accuracy**: The average distance between the model's final position and the fixed goal position across all episodes was **0.8 mm**.
-- **Std Dev**: The model demonstrated highly consistent performance, with a standard deviation of **0.1 mm**.
-- **Avg Steps**: The model required an average of **57 steps** to complete each episode, indicating efficiency in navigating to the goal.
+| Model                           | Learning Rate | Batch Size | Gamma | Lowest Error (m) | Comments                                  |
+| ------------------------------- | ------------- | ---------- | ----- | ---------------- | ----------------------------------------- |
+| **Model (1) (Musaed)**          | 0.0001        | 32         | 0.98  | 0.001025         | Small batch size, good performance        |
+| **Model (2) (Musaed)**          | 1e-05         | 64         | 0.98  | 0.009019         | Worst performance — learning rate too low |
+| **Model (3) (Musaed)**          | 0.0001        | 32         | 0.98  | 0.001019         | Best model among Musaed’s models          |
+| **Model (4) (Musaed)**          | 5e-05         | 128        | 0.999 | 0.001032         | High gamma → slightly larger error        |
+| **Model (5) (Musaed)**          | 0.0001        | 64         | 0.98  | 0.001047         | Similar to Model 3 but slightly worse     |
+| **Model (6) (Musaed)**          | 1e-05         | 128        | 0.96  | 0.002459         | Very low LR → unstable, second-worst      |
+| **Model (z4sv4e) (Edoardo)**    | 0.0003        | 64         | 0.99  | 0.006313         | Much higher error than other runs         |
+| **Model (Downloads) (Edoardo)** | 0.0003        | 128        | 0.99  | 0.001005         | 2nd Best Model overall                    |
+| **Model (Task11) (Edoardo)**    | 0.0001        | 64         | 0.99  | **0.000954**     |  **Best Model (Lowest Error)**          |
 
 ---
 
-## Execution Logs
-1. **PyBullet Initialization**:
-   - Started threads for physics simulation and rendering.
-   - Successfully utilized NVIDIA RTX 4060 GPU for computation.
+## 🖼️ Supporting Image
 
-2. **Model Evaluation**:
-   - Model path: `C:\Users\jimal\OneDrive - BUas\Pictures\CkearML\ClearMl\model.zip`
-   - Successfully evaluated over 10 episodes.
+Add the screenshot to the repo under `/images/`:
 
-3. **Thread Management**:
-   - Simulation threads terminated cleanly after execution.
+```markdown
+![Model Comparison Table](images/model_comparison.png)
+```
 
 ---
 
-## Observations
-- **High Precision**: The model achieved exceptional accuracy with minimal deviation.
-- **Efficiency**: The low average step count suggests the model effectively optimizes its actions.
-- **Stability**: Consistent performance metrics demonstrate reliable behavior across episodes.
+## 🔍 **Analysis & Interpretation**
+
+### **1. Learning Rate**
+
+* The **best-performing models** used a learning rate of **0.0001**.
+* Extremely low LR (1e-05) consistently produced **poor results**, confirming slow and unstable learning.
+
+### **2. Batch Size**
+
+* A **moderate batch size (64)** provided the best tradeoff between stability and noise.
+* Too small (32) still performed well, but (64) was more consistent across models.
+* Larger batch (128) worked well only when combined with a good LR (e.g., Model Downloads).
+
+### **3. Gamma (Discount Factor)**
+
+* Gamma **0.98–0.99** produced stable learning.
+* Very high gamma (0.999) caused *slight* performance degradation.
 
 ---
 
-## Recommendations
-- Further evaluate the model with dynamic or random goal positions to test generalization capabilities.
-- Compare this model's performance with additional trained models to identify areas for improvement.
-- Visualize the model's trajectory and learning curves for better insights.
+## 🏆 **Final Evaluation — Best Model**
+
+**Model (Task11) (Edoardo)**
+
+* **Learning Rate:** 0.0001
+* **Batch Size:** 64
+* **Gamma:** 0.99
+* **Final Lowest Error:** **0.000954 m (Best)**
+
+This model demonstrated:
+
+* Fastest convergence
+* Most stable policy
+* Lowest final error across all experiments
 
 ---
 
-## Next Steps
-1. Document results in the README file (provided below).
-2. Save results to a structured file (e.g., JSON or CSV) for future reference.
-3. Add visualizations to analyze performance metrics further.
+## 📘 **Conclusion**
+
+Through systematic hyperparameter tuning and benchmarking, we demonstrated the ability to:
+
+* Train multiple RL models
+* Compare their performance scientifically
+* Document hyperparameters and results
+* Select the optimal model based on quantitative evidence
+
+The experiments clearly show that the combination of **LR = 0.0001**, **Batch Size = 64**, **Gamma = 0.99** yields the most reliable and lowest-error policy.
 
 ---
 
-# README
-
-## Model Evaluation Overview
-This project evaluates a reinforcement learning model trained with the Proximal Policy Optimization (PPO) algorithm. The model was tested in a custom environment using PyBullet for physics simulations.
-
-### Fixed Goal Position
-- **Coordinates**: `[0.1, 0.1, 0.2]`
-- **Episodes**: 10
-
-### Results
-| Metric             | Value       |
-|--------------------|-------------|
-| **Avg Accuracy**   | 0.0008 m    |
-| **Std Dev**        | 0.0001 m    |
-| **Avg Steps**      | 57.10       |
-
-### Environment Details
-- **Custom Environment**: `OT2Env v2`
-- **Physics Engine**: PyBullet
-- **GPU**: NVIDIA GeForce RTX 4060 Laptop GPU
-
-### Execution Logs
-- The evaluation ran successfully without errors.
-- All simulation threads terminated cleanly.
-
-### Next Steps
-- Perform additional evaluations with dynamic goals.
-- Compare this model with others to identify the best-performing setup.
-- Add trajectory visualizations for better analysis.
-
-### How to Run
-1. Clone the repository.
-2. Update the model path in the script:
-   ```python
-   model_path = r"C:\Users\jimal\OneDrive - BUas\Pictures\CkearML\ClearMl\model.zip"
-   ```
-3. Run the script:
-   ```bash
-   python evaluate_model.py
-   ```
-4. View the output in the console.
-
----
-
-## License
-This project is licensed under the MIT License.
 
