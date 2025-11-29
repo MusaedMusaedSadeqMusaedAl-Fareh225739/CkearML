@@ -68,7 +68,7 @@ These results clearly show how learning rate, batch size, and gamma influence th
 
 The best-performing model from all experiments is:
 
-### 🏆 **Model (Task11) — Edoardo**
+###  **Model (Task11) — Edoardo**
 - **Learning Rate:** 0.0001  
 - **Batch Size:** 64  
 - **Gamma:** 0.99  
