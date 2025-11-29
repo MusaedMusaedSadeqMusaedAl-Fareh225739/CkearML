@@ -29,10 +29,11 @@ The goal was to evaluate **how hyperparameters influence stability, convergence 
 
 ##  Supporting Image
 
-Add the screenshot to the repo under `/images/`:
+
 
 ```markdown
-![Model Comparison Table](images/model_comparison.png)
+https://github.com/MusaedMusaedSadeqMusaedAl-Fareh225739/CkearML/blob/main/ClearMl/Screenshot%202025-11-29%20224131.png
+
 ```
 
 ---
