@@ -1,17 +1,29 @@
----
+# **Reinforcement Learning Model Training, Evaluation & Benchmarking**
 
-# **README Section — Model Training, Hyperparameters & Performance Benchmarking**
-
-##  Reinforcement Learning Model Experiments
-
-To meet the requirements for training and comparing RL models, we experimented with **10 different model configurations**, varying learning rate, batch size, and gamma.
-All models were trained on the same task and environment to ensure fair comparison.
-
-The goal was to evaluate **how hyperparameters influence stability, convergence speed, and final error**.
+This document presents our complete reinforcement learning (RL) experimentation pipeline, including hyperparameter tuning, model comparison, performance benchmarking, and code references. All models were trained using PPO (Stable-Baselines3) and logged/evaluated through ClearML.
 
 ---
 
-## **Hyperparameter Comparison Table**
+## **1. Reinforcement Learning Model Experiments**
+
+To meet the course requirements for training and comparing RL models, we trained **10 different PPO model configurations**, systematically varying:
+
+- Learning rate  
+- Batch size  
+- Gamma (discount factor)
+
+All models were trained on the same environment to allow a fair and controlled comparison.
+
+The objective of these experiments was to evaluate how hyperparameter choices influence:
+
+- Convergence speed  
+- Stability  
+- Final lowest achieved error  
+- Overall policy performance  
+
+---
+
+## **2. Hyperparameter Comparison Table**
 
 | Model                           | Learning Rate | Batch Size | Gamma | Lowest Error (m) | Comments                                  |
 | ------------------------------- | ------------- | ---------- | ----- | ---------------- | ----------------------------------------- |
@@ -25,57 +37,106 @@ The goal was to evaluate **how hyperparameters influence stability, convergence 
 | **Model (Downloads) (Edoardo)** | 0.0003        | 128        | 0.99  | 0.001005         | 2nd Best Model overall                    |
 | **Model (Task11) (Edoardo)**    | 0.0001        | 64         | 0.99  | **0.000954**     | **Best Model (Lowest Error)**            |
 
+These results clearly show how learning rate, batch size, and gamma influence the training performance of PPO in this environment.
+
 ---
 
-## **Supporting Image**
+## **3. Supporting Image**
 
 ![Evaluation With Edoardo](https://github.com/MusaedMusaedSadeqMusaedAl-Fareh225739/CkearML/blob/main/ClearMl/Screenshot%202025-11-29%20224131.png)
 
 ---
 
-## **Analysis & Interpretation**
+## **4. Analysis & Interpretation**
 
-### **1. Learning Rate**
-- The **best-performing models** used a learning rate of **0.0001**.
-- Extremely low LR (1e-05) consistently produced **poor results**, confirming slow and unstable learning.
+### **4.1 Learning Rate**
+- The models with **LR = 0.0001** consistently performed best.  
+- Extremely low LR values (e.g., **1e-05**) produced poor convergence and unstable learning.
 
-### **2. Batch Size**
-- A **moderate batch size (64)** provided the best tradeoff between stability and noise.
-- Too small (32) still performed well, but (64) was more consistent across models.
-- Larger batch (128) worked well only when combined with a good LR (e.g., Model Downloads).
+### **4.2 Batch Size**
+- Batch size **64** provided the best stability-to-noise balance.  
+- Batch size **32** also performed well, but with more variability.  
+- Large batch size (128) only performs well when paired with a good learning rate.
 
-### **3. Gamma (Discount Factor)**
-- Gamma **0.98–0.99** produced stable learning.
-- Very high gamma (0.999) caused slight performance degradation.
+### **4.3 Gamma (Discount Factor)**
+- Gamma **0.98–0.99** yielded stable learning across models.  
+- Gamma **0.999** increased long-term weighting too much, slightly worsening results.
 
 ---
 
-## **Final Evaluation — Best Model**
+## **5. Final Evaluation — Best Model**
 
-**Model (Task11) (Edoardo)**
+The best-performing model from all experiments is:
 
+### 🏆 **Model (Task11) — Edoardo**
 - **Learning Rate:** 0.0001  
 - **Batch Size:** 64  
 - **Gamma:** 0.99  
-- **Final Lowest Error:** **0.000954 m (Best)**  
+- **Lowest Error:** **0.000954 m**  
 
-This model demonstrated:
-- Fastest convergence  
-- Most stable policy  
-- Lowest final error across all experiments  
+This model produced:
+- The most stable training curve  
+- Fast convergence  
+- The lowest recorded final error  
+- Consistent evaluation performance  
 
 ---
 
-## **Conclusion**
+## **6. Code Used for Training & Evaluation**
 
-Through systematic hyperparameter tuning and benchmarking, we demonstrated the ability to:
+All training and evaluation code for the best model is publicly available:
 
-- Train multiple RL models  
-- Compare their performance scientifically  
-- Document hyperparameters and results  
-- Select the optimal model based on quantitative evidence  
+ **Task11_test_edoardo.ipynb**  
+https://github.com/MusaedMusaedSadeqMusaedAl-Fareh225739/CkearML/blob/main/ClearMl/Task11_test_edoardo.ipynb
 
-The experiments clearly show that the combination of **LR = 0.0001**, **Batch Size = 64**, and **Gamma = 0.99** yields the most reliable and lowest-error policy.
+This notebook contains:
+- Environment setup  
+- Reward function  
+- PPO configuration  
+- Hyperparameter selection  
+- Training loop  
+- Evaluation logic  
+- ClearML tracking  
+
+This notebook directly generates the results shown in the comparison table.
+
+---
+
+## **7. Team Contribution — Training Responsibility**
+
+All reinforcement learning model training, experimentation, and evaluation were performed **exclusively by Musaed Alfareh and Edoardo**.
+
+Specifically, we were responsible for:
+
+- Setting up the PPO training pipeline  
+- Implementing and tuning reward functions  
+- Running all training sessions  
+- Testing hyperparameters  
+- Tracking experiments with ClearML  
+- Comparing performance and selecting the best model  
+- Documenting all results in this README  
+
+The models in the comparison table represent the **best-performing configurations** from all experiments conducted by Musaed and Edoardo.
+
+---
+
+## **8. Conclusion**
+
+Through extensive hyperparameter testing and RL model training, we successfully demonstrated the ability to:
+
+- Train and evaluate multiple RL models  
+- Compare model performance using quantitative measures  
+- Document training performance and hyperparameters  
+- Benchmark results in a clear, reproducible format  
+- Identify the best-performing model based on empirical evidence  
+
+The results conclude that the optimal configuration for this task is:
+
+➡ **Learning Rate = 0.0001**  
+➡ **Batch Size = 64**  
+➡ **Gamma = 0.99**
+
+This setup consistently produced the **lowest error** and most stable learned policy.
 
 ---
 
